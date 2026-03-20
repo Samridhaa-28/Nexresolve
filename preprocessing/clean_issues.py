@@ -132,21 +132,101 @@ def primary_label(normalised: str) -> str:
 
 
 # ─────────────────────────────────────────────
-# NLP-derived flags (simple, regex-based)
+# NLP-derived flags (improved regex-based)
 # ─────────────────────────────────────────────
-_VERSION_PATTERN = re.compile(
-    r"\b(?:v?[\d]+\.[\d]+(?:\.[\d]+)?|version\s*[\d.]+)\b", re.IGNORECASE
+#
+# missing_version_flag = 1 → NO version info found  → RL should ask clarification
+# missing_version_flag = 0 → version IS present     → no clarification needed
+#
+# missing_error_flag   = 1 → NO error/exception found → may need clarification
+# missing_error_flag   = 0 → error code/trace IS present
+#
+# Detection layers for VERSION (applied in order):
+#   Layer 1 — explicit version numbers   e.g.  1.2.3  v4.5  0.33.5  10.0.26200
+#   Layer 2 — labelled field with value  e.g.  "vs code version: 1.111"
+#   Layer 3 — blank version templates    e.g.  "vs code version: -"  → still MISSING
+#   Layer 4 — release/update keywords    e.g.  "latest update" "insiders release"
+#             (weak signal — treated as version-present, lower confidence)
+
+# Layer 1: version number  e.g. 1.2.3  v4.5  10.0.26200
+_VERSION_NUMBER_RE = re.compile(
+    r"\bv?\d+\.\d+(?:\.\d+)*\b",
+    re.IGNORECASE
 )
-_ERROR_PATTERN = re.compile(
-    r"\b(?:error[:\s]*[\w\d]+|exception[:\s]*[\w\d]+|0x[0-9a-f]+|errno\s*\d+|traceback)\b",
-    re.IGNORECASE,
+
+# Layer 2: version field with real value  e.g. "version: 1.2"
+_VERSION_FIELD_RE = re.compile(
+    r"(?:version|vs code version|extension version|os version)[:\s]+v?[\d]+\.[\d]",
+    re.IGNORECASE
 )
+
+# Layer 3: blank template — user left version empty  e.g. "vs code version: -"
+_VERSION_BLANK_RE = re.compile(
+    r"(?:version|vs code version|extension version|os version)[:\s]*(?:-|n/?a|unknown|\?)\s*$",
+    re.IGNORECASE | re.MULTILINE
+)
+
+# Layer 4: release/update keywords — weak version signal
+_VERSION_KEYWORD_RE = re.compile(
+    r"\b(?:latest update|insiders release|insiders version|after (?:the )?update|"
+    r"recent update|new release|after (?:the )?upgrade)\b",
+    re.IGNORECASE
+)
+
+# Error patterns — expanded to catch real error formats from GitHub issues
+_ERROR_RE = re.compile(
+    r"\b(?:"
+    r"error[:\s][\w\d]+|"           # error: SomeError  or  error 404
+    r"exception[:\s][\w\d]+|"       # exception: NullPointerException
+    r"0x[0-9a-f]{4,}|"              # hex codes  0x80070005
+    r"errno\s*\d+|"                 # errno 13
+    r"traceback|"                   # Python traceback
+    r"stack trace|"                 # Java/JS stack trace
+    r"exit code \d+|"               # exit code 1
+    r"failed with|"                 # failed with error
+    r"throws?|"                     # throws / throw
+    r"crash(?:ed|es)?|"             # crashed / crashes
+    r"segfault|"                    # segmentation fault
+    r"core dump"                    # core dump
+    r")",
+    re.IGNORECASE
+)
+
 
 def has_version(text: str) -> int:
-    return int(bool(_VERSION_PATTERN.search(text)))
+    """
+    Returns 1 if version information is genuinely present, 0 if missing.
+    Blank templates like 'version: -' are treated as MISSING (returns 0).
+    missing_version_flag = 1 - has_version(text)
+    """
+    if not isinstance(text, str):
+        return 0
+
+    # Layer 3 check first: blank template with no version number anywhere
+    if _VERSION_BLANK_RE.search(text) and not _VERSION_NUMBER_RE.search(text):
+        return 0  # template exists but is empty → still missing
+
+    # Layer 1: explicit version number present
+    if _VERSION_NUMBER_RE.search(text):
+        return 1
+
+    # Layer 2: labelled field with real value
+    if _VERSION_FIELD_RE.search(text):
+        return 1
+
+    # Layer 4: weak keyword signal
+    if _VERSION_KEYWORD_RE.search(text):
+        return 1
+
+    return 0  # nothing found → version is missing
+
 
 def has_error(text: str) -> int:
-    return int(bool(_ERROR_PATTERN.search(text)))
+    """Returns 1 if any error/exception signal is present, 0 otherwise."""
+    if not isinstance(text, str):
+        return 0
+    return int(bool(_ERROR_RE.search(text)))
+
 
 
 # ─────────────────────────────────────────────

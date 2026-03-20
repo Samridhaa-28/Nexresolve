@@ -1,0 +1,859 @@
+issue_number,total_events,reopen_count,unique_actors,reassignment_count,first_assignee,sla_breach_flag,all_labels_seen
+99991,5,0,3,1,Venkat6871,0,type:bug|type:build/install|awaiting PR merge
+100134,7,0,3,1,Venkat6871,0,type:bug|type:docs-bug|comp:ops|TF 2.19|awaiting PR merge
+100138,7,0,3,1,Venkat6871,0,type:bug|type:docs-bug|comp:ops|TF 2.19|awaiting PR merge
+100234,7,0,3,1,Venkat6871,0,type:bug|type:docs-bug|comp:ops|TF 2.19|awaiting PR merge
+100237,6,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|awaiting PR merge
+100300,3,0,3,1,Venkat6871,0,type:bug
+100317,11,0,4,2,Venkat6871,0,comp:lite|Android|TFLiteGooglePlayServices|type:support|stat:awaiting response|stale
+100327,6,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:keras|stat:awaiting response
+100434,12,0,6,3,Venkat6871,0,type:feature|subtype:macOS|comp:lite|iOS|stat:awaiting response|stale
+100442,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|subtype: ubuntu/linux|stat:awaiting response|stale
+100500,4,0,3,1,Venkat6871,0,type:bug|type:docs-bug
+100517,9,0,4,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|2.21.0rc0|stat:awaiting response|stale
+100519,9,0,4,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|2.21.0rc0|stat:awaiting response|stale
+100522,4,0,3,1,Venkat6871,0,type:bug|type:docs-bug
+100533,12,0,5,4,Venkat6871,0,type:bug|type:support|comp:lite|Android
+100590,8,0,3,1,Venkat6871,0,type:bug|TF 2.19|subtype:windows|comp:ops|stat:awaiting response|stale
+100689,3,0,3,1,Venkat6871,0,type:bug
+100872,8,0,4,1,Venkat6871,0,type:bug|comp:keras|comp:xla|TF 2.19|stat:awaiting response|stale
+101017,3,0,3,1,Venkat6871,0,type:build/install
+101115,6,0,3,1,Venkat6871,0,type:bug|TF 2.19|type:docs-bug|awaiting PR merge
+101142,7,0,3,1,Venkat6871,0,type:build/install|TF 2.19|subtype: ubuntu/linux|stat:awaiting response
+101181,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:xla|stat:awaiting response|stale
+101183,7,0,3,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+101188,7,0,3,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+101201,6,0,3,1,Venkat6871,0,type:bug|comp:keras|TF 2.19|awaiting PR merge
+101296,6,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:keras|subtype: ubuntu/linux
+101307,7,0,4,1,Venkat6871,0,type:build/install|TF 2.18|subtype:windows|stat:awaiting response
+101361,11,0,5,3,Venkat6871,0,type:bug|comp:lite|TF 2.19|stat:awaiting response|stale
+101391,6,0,4,1,Venkat6871,0,type:build/install|TF 2.19|stat:awaiting response|stale
+101397,11,0,5,3,Venkat6871,0,type:bug|TF 2.19|comp:lite|stat:awaiting response|stale
+101472,7,0,4,2,Venkat6871,0,type:others|TF 2.19|stat:awaiting response
+101499,5,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:keras
+101516,9,0,4,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|awaiting PR merge|comp:ops
+101521,9,0,4,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|awaiting PR merge|comp:ops
+101578,6,0,4,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|awaiting PR merge
+101746,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:gpu|stat:awaiting response|stale
+101889,10,0,4,3,Venkat6871,0,comp:lite|TF 2.16|stat:awaiting response|stale
+101960,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|type:build/install|subtype:windows|stat:awaiting response
+102027,9,0,3,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|comp:apis|awaiting PR merge
+102044,4,0,4,1,Venkat6871,0,type:bug|TF 2.13
+102055,3,0,2,1,Venkat6871,0,type:bug
+102065,9,0,4,1,Venkat6871,0,type:performance|comp:xla|comp:gpu|TF 2.13|stat:awaiting response|stale
+102071,10,0,5,2,Venkat6871,0,type:others|comp:lite|TF 2.19|stat:awaiting response
+102158,3,0,3,1,Venkat6871,0,type:bug
+102206,7,0,3,1,Venkat6871,0,type:build/install|TF 2.19|subtype: ubuntu/linux|stat:awaiting response|stale
+102343,15,0,3,1,Venkat6871,0,type:bug|type:docs-bug|comp:ops|TF 2.19|awaiting PR merge
+102349,9,0,3,1,Venkat6871,0,type:bug|type:docs-bug|comp:ops|awaiting PR merge|TF 2.19
+102416,5,0,3,1,Venkat6871,0,type:build/install|TF 2.19|subtype: ubuntu/linux
+102475,3,0,3,1,Venkat6871,0,type:bug
+102490,12,0,6,3,Venkat6871,0,comp:lite|TF 2.19|stat:awaiting response|stale
+102492,9,0,3,1,Venkat6871,0,type:bug|TF 2.18|comp:ops|stat:awaiting response|stale
+102572,7,0,4,2,Venkat6871,0,type:build/install|comp:lite|awaiting PR merge
+102743,6,0,4,1,Venkat6871,0,type:build/install|TF2.14|stat:awaiting response
+102812,5,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:ops
+102864,12,0,4,3,Venkat6871,0,type:build/install|comp:lite|TF 2.19|subtype:macOS|stat:awaiting response
+102870,6,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:keras|stat:awaiting response
+102880,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:keras|stat:awaiting response|stale
+103263,6,0,4,2,Venkat6871,0,comp:lite|stat:awaiting response
+103352,9,0,3,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|comp:ops|awaiting PR merge|stat:awaiting response
+103407,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|stat:awaiting response
+103429,10,0,6,3,Venkat6871,0,type:bug|comp:lite|stat:awaiting response|stale
+103430,12,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:model|stat:awaiting response
+103434,6,0,3,1,Venkat6871,0,type:others|TF 2.5|stat:awaiting response|stale
+103469,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:gpu|stat:awaiting response|stale
+103470,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:gpu|stat:awaiting response|stale
+103506,11,0,4,2,Venkat6871,0,type:bug|TF 2.19|comp:keras|comp:gpu|stat:awaiting response|stale
+103531,7,0,3,1,Venkat6871,0,type:build/install|TF 2.19|wsl2|stat:awaiting response|stale
+103536,11,0,7,3,Venkat6871,0,type:bug|comp:lite|TF 2.19|stat:awaiting response|stale
+103538,11,0,7,3,Venkat6871,0,type:build/install|comp:lite|TF 2.19|stat:awaiting response|stale
+103590,14,0,5,4,Venkat6871,0,type:build/install|TF 2.19|comp:lite|stat:awaiting response
+103630,9,0,4,3,Venkat6871,0,comp:lite|stat:awaiting response|stale
+103660,8,0,4,2,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|awaiting PR merge
+103823,11,0,4,2,Venkat6871,0,type:bug|comp:tf.function|TF 2.19|TF 2.16|stat:awaiting response|stale
+103915,6,0,3,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.19|awaiting PR merge
+103918,3,0,3,1,Venkat6871,0,type:build/install
+103920,7,0,3,1,Venkat6871,0,type:bug|type:docs-bug|type:others|awaiting PR merge|TF 2.19
+103994,8,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|comp:gpu|stat:awaiting response|stale
+103998,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+103999,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104016,8,0,4,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.16|subtype:macOS|stat:awaiting response|stale
+104074,3,0,3,1,Venkat6871,0,type:build/install
+104076,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104077,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104078,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104079,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104080,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104257,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104258,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104259,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104260,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104261,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|stat:awaiting response|stale
+104297,5,0,4,1,Venkat6871,0,type:bug|type:build/install|TF 2.19
+104313,12,0,6,4,Venkat6871,0,type:bug|comp:lite|stat:awaiting response
+104359,8,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:ops|comp:gpu|stat:awaiting response|stale
+104360,8,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:gpu|comp:ops|stat:awaiting response|stale
+104361,8,0,3,1,Venkat6871,0,type:bug|comp:ops|comp:gpu|TF 2.19|stat:awaiting response|stale
+104363,8,0,3,1,Venkat6871,0,type:bug|comp:ops|comp:gpu|TF 2.19|stat:awaiting response|stale
+104364,8,0,3,1,Venkat6871,0,type:bug|comp:ops|comp:gpu|TF 2.19|stat:awaiting response|stale
+104521,4,0,3,1,Venkat6871,0,type:bug|TF 2.19
+104564,6,0,3,1,Venkat6871,0,type:bug|subtype:windows|comp:gpu|TF 2.19
+104763,6,0,4,1,Venkat6871,0,comp:lite|type:support|stat:awaiting response
+104845,8,0,4,2,Venkat6871,0,type:bug|TF 2.19|stat:awaiting response|stale
+104855,9,0,4,2,Venkat6871,0,type:bug|comp:ops|2.17|stat:awaiting response|stale
+104856,10,0,4,2,Venkat6871,0,type:bug|2.17|comp:ops|comp:gpu|stat:awaiting response|stale
+104858,9,0,4,2,Venkat6871,0,type:bug|comp:ops|2.17|stat:awaiting response|stale
+104859,9,0,4,2,Venkat6871,0,type:bug|comp:ops|2.17|stat:awaiting response|stale
+104861,9,0,4,2,Venkat6871,0,type:bug|comp:ops|2.17|stat:awaiting response|stale
+105092,9,0,4,2,Venkat6871,0,type:bug|2.17|comp:ops|comp:gpu|stat:awaiting response
+105098,9,0,5,2,Venkat6871,0,type:bug|2.17|comp:data|stat:awaiting response|stale
+105303,9,0,4,2,Venkat6871,0,type:bug|comp:ops|2.17|stat:awaiting response|stale
+105332,9,0,5,2,Venkat6871,0,type:bug|comp:xla|2.21.0rc0|stat:awaiting response|stale
+105470,10,0,5,2,Venkat6871,0,type:bug|type:docs-bug|comp:ops|awaiting PR merge|stat:awaiting response
+105638,9,0,4,2,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+105729,9,0,4,2,Venkat6871,0,type:bug|comp:xla|stat:awaiting response|TF 2.19|stale
+105815,15,0,4,2,Venkat6871,0,type:bug|TF 2.19|comp:model|stat:awaiting response
+105858,5,0,4,1,Venkat6871,0,type:bug|type:docs-bug|TF 2.16
+105870,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|subtype:macOS|stat:awaiting response|stale
+106085,3,0,3,1,Venkat6871,0,type:performance
+106378,11,0,5,3,Venkat6871,0,type:bug|comp:ops|TF 2.19|stat:awaiting response|stale
+106494,5,0,4,1,Venkat6871,0,type:bug|TF 2.19|awaiting PR merge
+106760,7,0,5,1,Venkat6871,0,TFLiteConverter|stat:awaiting response|stale
+107123,8,0,4,2,Venkat6871,0,type:bug|comp:ops|TF 2.19|stat:awaiting response
+107125,6,0,3,1,Venkat6871,0,type:bug|comp:ops|TF 2.19|awaiting PR merge
+107439,11,0,4,2,Venkat6871,0,type:build/install|subtype:windows|TF 2.19|awaiting PR merge|stat:awaiting response
+107670,5,0,4,1,Venkat6871,0,type:bug|TF 2.3|comp:ops
+107723,3,0,3,1,Venkat6871,0,type:bug
+107978,6,0,4,2,Venkat6871,0,type:bug|TF 2.19
+108072,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:xla|stat:awaiting response|stale
+108073,8,0,5,2,Venkat6871,0,type:bug|TF 2.19|comp:xla|stat:awaiting response|stale
+108077,9,0,5,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+108094,9,0,5,2,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+108143,5,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:xla
+108266,9,0,3,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+108268,7,0,4,2,Venkat6871,0,type:bug|comp:xla|TF 2.19
+108305,9,0,4,2,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+108306,7,0,3,1,Venkat6871,0,type:bug|TF 2.19|comp:xla|stat:awaiting response|stale
+108471,4,0,4,1,Venkat6871,0,type:bug|comp:keras
+108488,5,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops
+108501,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:xla|stat:awaiting response|stale
+108502,7,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:xla|stat:awaiting response|stale
+108521,3,0,3,1,Venkat6871,0,type:bug
+108548,7,0,4,2,Venkat6871,0,type:bug|TF 2.19|comp:ops
+108594,3,0,3,1,Venkat6871,0,type:support
+108605,3,0,3,1,Venkat6871,0,type:bug
+108608,9,0,4,2,Venkat6871,0,type:bug|TF 2.19|stat:awaiting response|comp:core
+108628,5,0,4,1,Venkat6871,0,type:bug|TF 2.19|comp:ops
+108629,5,0,4,1,Venkat6871,0,type:bug|comp:ops|TF 2.19
+109015,9,0,4,2,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+109016,9,0,4,2,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+109112,7,0,3,1,Venkat6871,0,type:bug|comp:xla|TF 2.19|stat:awaiting response|stale
+109469,8,0,4,2,Venkat6871,0,type:bug|TF 2.18|comp:core|stat:awaiting response
+109516,9,0,5,2,Venkat6871,0,type:bug|TF 2.19|comp:gpu|stat:awaiting response|stale
+109522,9,0,5,2,Venkat6871,0,type:bug|TF 2.19|comp:gpu|stat:awaiting response|stale
+109523,9,0,4,2,Venkat6871,0,type:bug|TF 2.19|comp:gpu|stat:awaiting response|stale
+109949,10,0,4,2,Venkat6871,0,type:bug|comp:keras|stat:awaiting response|stale
+110139,8,0,4,2,Venkat6871,0,type:bug|TF 2.19|stat:awaiting response|stale
+110532,5,0,3,2,Venkat6871,0,type:bug
+111661,8,0,4,2,Venkat6871,0,type:bug|type:build/install|stat:awaiting response
+172015,5,0,3,0,,0,module: inductor|oncall: pt2|high priority|triage review
+172022,4,0,3,0,,0,oncall: pt2|module: aotinductor|oncall: export
+172061,15,0,7,3,masnesral,0,oncall: pt2|module: inductor|module: pt2 accuracy|high priority|triage review|triaged|pt2: ubn|PT2-Bug-Bash
+172062,9,0,5,0,,0,oncall: pt2|module: inductor|high priority|triage review|triaged|pt2: ubn
+172066,8,0,3,1,aorenste,0,oncall: pt2|module: internals|module: core aten|triaged|module: cudnn|module: cuda
+172067,6,0,3,0,,0,module: python array api|module: NaNs and Infs|module: python frontend|triaged
+172068,6,0,3,0,,0,oncall: pt2|module: inductor|module: numerical-stability|needs research|triaged
+172071,2,0,2,0,,0,oncall: pt2
+172091,11,0,4,0,,0,skipped|module: rocm|rocm-skipped-tests|module: flex attention|oncall: pt2|high priority|triage review|triaged
+172102,2,0,2,0,,0,module: dtensor
+172146,5,0,2,1,titaiwangms,0,module: onnx|module: docs|triaged
+172155,4,0,2,0,,0,oncall: pt2|module: inductor|triaged
+172157,5,0,4,1,RohitRathore1,0,module: symm_mem|triaged|enhancement
+172162,2,0,1,0,,0,module: binaries
+172202,4,0,3,0,,0,skipped|module: xpu|triaged
+172205,3,0,3,0,,0,module: performance|triaged
+172215,6,0,2,1,divyanshk,0,module: multiprocessing|module: dataloader|triaged
+172233,5,0,2,0,,0,module: crash|module: sdpa|triaged|actionable
+172248,8,0,5,1,angelayi,0,oncall: pt2|module: functorch|high priority|triage review|triaged
+172275,4,0,2,0,,0,module: build|module: rocm|triaged
+172325,12,0,6,4,kshitij12345,0,module: higher order operators|module: pt2-dispatcher|oncall: pt2|feature|triaged
+172350,5,0,2,1,XilunWu,0,oncall: distributed|topic: bug fixes|module: dtensor
+172352,4,0,2,0,,0,module: cuda|release notes: cuda
+172399,5,0,2,0,,0,triaged|module: intel|module: wsl|module: xpu
+172416,5,0,3,0,,0,module: ci|module: rocm|unstable|triaged
+172433,4,0,3,0,,0,skipped|module: xpu|triaged
+172435,4,0,3,0,,0,skipped|module: xpu|triaged
+172438,4,0,2,1,justinchuby,0,module: onnx|triaged
+172439,5,0,3,1,slayton58,0,module: cuda|module: cublas|module: linear algebra
+172440,8,0,2,0,,0,triage review|module: linear algebra|triaged|module: bfloat16|module: half|module: floatx (formerly float8)
+172442,6,0,4,1,BoyuanFeng,0,high priority|triage review|triaged|module: cuda graphs
+172459,6,0,3,2,justinchuby,0,module: onnx|triaged
+172529,14,0,6,0,,0,triaged|module: xpu|module: correctness (silent)|oncall: pt2|module: inductor|high priority|triage review|module: cuda|llm-amenable
+172543,2,0,2,0,,0,oncall: distributed
+172560,5,0,2,0,,0,module: nn|actionable|module: docs|triaged
+172629,4,0,2,0,,0,module: cuda|triaged|needs reproduction
+172630,5,0,2,0,,0,module: build|module: third_party|module: arm|triaged
+172693,12,0,7,2,laithsakka,0,oncall: pt2|module: dynamic shapes|module: correctness (silent)|high priority|triage review|triaged|module: inductor
+172712,4,0,3,0,,0,oncall: pt2|topic: fuzzer|oncall: cpu inductor
+172728,8,0,5,0,,0,oncall: pt2|module: cuda graphs|module: dynamic shapes|module: inductor|triaged|vllm-compile|module: vllm
+172739,8,0,4,0,,0,high priority|oncall: pt2|triage review|module: aotinductor|oncall: export|module: crash
+172744,6,0,3,0,,0,high priority|module: crash|triaged|module: linear algebra|triage review
+172747,14,0,8,2,lakshayg,0,oncall: pt2|high priority|triage review|module: inductor|oncall: cpu inductor|module: dynamic shapes|triaged
+172784,5,0,3,2,justinchuby,0,module: onnx|triaged
+172812,6,0,5,1,RohitRathore1,0,oncall: distributed|module: dtensor|high priority|triage review
+172815,5,0,3,0,,0,high priority|triaged|module: infra|triage review
+172822,5,0,3,1,laithsakka,0,oncall: pt2|module: dynamic shapes|triaged
+172830,8,0,4,1,laithsakka,0,oncall: pt2|triaged|module: fakeTensor|module: decompositions|module: pt2-dispatcher|module: dynamic shapes
+172837,4,0,3,0,,0,oncall: pt2|module: cuda graphs|triaged
+172880,7,0,3,0,,0,module: onnx|triaged|oncall: export|oncall: pt2
+172893,3,0,3,0,,0,oncall: export|oncall: pt2
+172896,10,1,4,1,sraikund16,0,high priority|module: docs|module: regression|triage review|module: third_party|oncall: profiler
+172903,4,0,1,0,,0,module: onnx|triaged|onnx-triaged
+172926,5,0,4,1,atalman,0,high priority|module: binaries|triage review
+172932,3,0,3,0,,0,module: dtensor|oncall: distributed
+172934,4,0,3,1,chuanqi129,0,triaged|module: xpu
+172966,1,0,1,0,,0,
+172976,4,0,2,0,,0,release-feature-request|oncall: distributed|feature
+172993,7,0,3,0,,0,high priority|module: binaries|triage review|needs reproduction|module: macos
+173024,5,0,3,0,,0,oncall: pt2|triaged|module: higher order operators|module: pt2-dispatcher
+173055,7,0,2,0,,0,module: docs|triaged|module: regression|module: nestedtensor|module: sparse
+173065,12,1,3,1,atalman,0,topic: binaries|high priority|triage review|module: binaries|needs reproduction
+173074,4,0,2,1,justinchuby,0,module: onnx|triaged
+173076,6,1,3,1,justinchuby,0,module: onnx|triaged
+173090,10,0,3,1,dolpm,0,high priority|needs reproduction|module: regression|triage review|module: arm|oncall: pt2|oncall: cpu inductor
+173099,4,0,2,1,atalman,0,module: binaries|triaged
+173125,4,0,3,1,naromero77amd,0,module: rocm|triaged
+173133,7,0,4,1,choijon5,0,oncall: pt2|module: inductor|high priority|triage review|triaged
+173157,3,0,3,0,,0,module: dtensor|oncall: distributed
+173165,4,0,1,1,atalman,0,module: binaries|triaged
+173171,4,0,2,0,,0,needs reproduction|module: cuda|triaged
+173172,6,0,3,1,mlazos,0,oncall: pt2|triaged|module: dynamo|module: compiled streams
+173176,7,0,6,3,howardzhang-cv,0,oncall: pt2|triaged|module: flex attention
+173200,2,0,1,0,,0,skipped
+173231,8,0,4,2,yushangdi,0,oncall: pt2|module: dynamo|triaged|dynamo-triage-dec2025
+173310,6,0,3,1,sraikund16,0,triage review|oncall: visualization|oncall: profiler
+173312,11,0,4,2,atalman,0,module: binaries|triaged|needs research|high priority|triage review
+173316,3,0,2,0,,0,module: onnx|triaged
+173334,6,0,3,0,,0,module: rnn|triaged|module: NaNs and Infs|needs reproduction|module: edge cases
+173336,6,1,3,0,,0,skipped|module: xpu|triaged
+173337,6,0,3,0,,0,module: nn|triaged|enhancement|module: norms and normalization|actionable
+173344,6,1,4,0,,0,skipped|module: xpu|triaged
+173352,4,0,3,0,,0,skipped|module: xpu|triaged
+173363,6,0,4,0,,0,skipped|module: xpu|triage review|triaged
+173383,12,0,5,1,lakshayg,0,release notes: foreach_frontend|module: optimizer|module: correctness (silent)|high priority|triaged|module: mta|triage review|actionable
+173462,8,0,3,1,atalman,0,high priority|module: binaries|triage review|triaged|module: regression
+173466,4,0,3,0,,0,skipped|module: xpu|triaged
+173475,6,0,4,0,,0,module: binaries|high priority|module: regression|module: macos|triage review
+173486,2,0,1,1,atalman,0,
+173491,1,0,1,0,,0,
+173498,5,0,2,0,,0,module: error checking|triaged|actionable|module: empty tensor
+173506,6,0,2,0,,0,module: crash|module: error checking|module: edge cases|module: cpu|triaged
+173520,2,0,2,0,,0,module: edge cases
+173522,5,0,4,1,tugsbayasgalan,0,oncall: pt2|triaged|module: dynamo
+173529,4,0,1,0,,0,module: convolution|triaged|module: edge cases
+173538,4,0,3,0,,0,oncall: pt2|oncall: distributed
+173619,6,1,4,0,,0,skipped|module: rocm|triaged
+173620,6,1,4,0,,0,skipped|module: rocm|triaged
+173622,21,0,5,0,,0,module: cuda|module: edge cases|triage review|module: correctness|bot-triaged|needs design|module: correctness (silent)|needs reproduction|module: 64-bit|triaged|actionable
+173624,6,0,2,0,,0,module: crash|topic: fuzzer|module: error checking|triaged|module: empty tensor
+173626,10,0,7,1,CaoE,0,oncall: pt2|high priority|module: inductor|oncall: cpu inductor|triage review|triaged
+173636,6,0,3,0,,0,module: cuda|module: special|triaged|module: correctness (silent)|actionable
+173679,10,0,4,0,,0,oncall: pt2|upstream triton|high priority|needs reproduction|module: inductor|triage review|triaged
+173706,8,0,5,1,yushangdi,0,oncall: pt2|high priority|module: aotinductor|oncall: export|triage review|module: regression
+173709,4,0,3,1,arkadip-maitra,0,oncall: distributed
+173712,7,1,4,0,,0,skipped|module: rocm|triaged|bot-triaged
+173713,7,1,4,0,,0,module: rocm|skipped|triaged|bot-triaged
+173714,8,1,4,0,,0,module: rocm|skipped|module: tests|triaged|bot-triaged
+173715,7,1,4,0,,0,skipped|module: rocm|triaged|bot-triaged
+173717,7,1,3,0,,0,module: rocm|triaged|skipped|bot-triaged
+173765,7,0,5,1,shunting314,0,oncall: pt2|triaged|module: inductor|high priority|triage review
+173772,5,0,3,1,XilunWu,0,oncall: distributed|module: c10d|triaged
+173777,5,0,2,1,huydhn,0,module: ci|unstable|triaged
+173780,4,0,2,0,,0,module: cpp|triaged|topic: docs
+173782,3,0,2,0,,0,module: onnx|triaged
+173786,1,0,1,0,,0,
+173792,3,0,2,0,,0,triaged|module: accelerator
+173795,15,0,4,1,neildhar,0,upstream triton|module: inductor|oncall: pt2|triaged|bot-triaged|high priority|triage review
+173797,14,0,4,1,neildhar,0,oncall: pt2|module: inductor|bot-triaged|upstream triton|triaged|high priority|triage review
+173808,6,0,4,0,,0,oncall: distributed|module: mps|feature|high priority|triage review
+173823,6,0,4,0,,0,module: binaries|oncall: pt2|bot-triaged|triaged|module: inductor
+173871,6,0,5,1,neildhar,0,oncall: pt2|bot-triaged|module: aotinductor|oncall: export
+173902,12,0,7,1,yf225,0,oncall: pt2|bot-triaged|triage review|module: inductor|high priority|triaged|PT2-Bug-Bash
+173909,3,0,2,0,,0,oncall: distributed|bot-triaged
+173915,6,0,3,0,,0,oncall: pt2|bot-triaged|module: dynamo|module: graph breaks|triaged
+173924,7,0,3,1,Lucaskabela,0,oncall: pt2|bot-triaged|module: dynamo|triage review|actionable
+173927,9,0,3,0,,0,triage review|oncall: pt2|bot-triaged|module: rnn|module: edge cases|triaged
+173944,21,0,4,0,,0,triage review|module: nn|module: rnn|module: cuda|bot-triaged|module: error checking|module: crash|bot-mislabeled|triaged|low priority
+173953,21,0,5,0,,0,triage review|module: cuda|module: sdpa|bot-triaged|high priority|triaged|Blackwell|module: regression
+173972,9,0,4,1,kurtamohler,0,module: mps|oncall: mobile|bot-triaged|bot-mislabeled|module: linear algebra|triaged
+173985,2,0,2,0,,0,oncall: pt2
+173991,7,0,2,0,,0,triage review|module: cuda|bot-triaged|bot-mislabeled|needs reproduction|module: windows
+173994,13,0,4,0,,0,skipped|module: xpu|module: tests|triaged|module: inductor|oncall: pt2|bot-triaged|bot-mislabeled
+174011,9,0,2,0,,0,triage review|module: nn|module: cpu|bot-triaged|needs reproduction|module: NaNs and Infs|module: edge cases|topic: fuzzer
+174013,5,0,4,0,,0,oncall: export|bot-triaged|oncall: pt2
+174016,6,0,3,0,,0,triage review|oncall: pt2|module: inductor|bot-triaged|high priority
+174030,5,0,4,1,kwen2501,0,oncall: distributed|bot-triaged|module: symm_mem
+174042,8,0,3,1,titaiwangms,0,oncall: onnx|bot-triaged|bot-mislabeled|module: onnx|triaged
+174050,11,0,5,1,Lucaskabela,0,triage review|oncall: pt2|module: dynamo|bot-triaged|high priority|module: correctness (silent)|dynamo-triage-dec2025|triaged
+174051,11,0,2,0,,0,triage review|module: cudnn|module: convolution|module: regression|bot-triaged|module: third_party|module: performance|triaged|bot-mislabeled
+174063,6,0,4,0,,0,oncall: export|oncall: pt2|bot-triaged|needs reproduction
+174068,6,0,4,0,,0,oncall: pt2|module: rocm|module: build|triaged
+174074,12,0,6,2,Lucaskabela,0,oncall: pt2|high priority|triage review|triaged|module: inductor|PT2-Bug-Bash
+174124,8,1,4,1,oulgen,0,oncall: pt2|module: user triton|high priority|triage review
+174128,6,0,2,0,,0,triage review|module: regression|oncall: pt2|module: dynamo|bot-triaged
+174133,5,0,2,0,,0,triage review|oncall: pt2|module: dynamo|bot-triaged
+174166,7,0,5,1,hameerabbasi,0,oncall: pt2|module: dynamo|triaged|good first issue|dynamo-triage-dec2025
+174172,8,0,5,1,karthickai,0,oncall: pt2|module: inductor|high priority|triage review|triaged
+174174,8,0,4,1,desertfire,0,oncall: pt2|module: inductor|high priority|triage review|triaged
+174175,4,0,3,0,,0,triaged|module: xpu|skipped
+174195,4,0,3,0,,0,oncall: profiler|bot-triaged|module: cuda
+174199,6,0,2,0,,0,module: cuda|triaged|oncall: pt2|module: sdpa|bot-triaged
+174244,2,0,2,0,,0,oncall: distributed
+174246,8,0,4,1,kurtamohler,0,module: mps|module: numerical-stability|triaged|module: edge cases|bot-triaged|module: complex
+174265,7,0,2,1,atalman,0,triage review|module: binaries|module: macos|module: regression|bot-triaged
+174280,7,0,4,0,,0,oncall: distributed|bot-triaged|oncall: pt2|bot-mislabeled|triaged|module: dynamo
+174282,9,0,3,1,naromero77amd,0,triage review|module: crash|module: rocm|module: half|bot-triaged|triaged
+174284,9,0,3,0,,0,triage review|module: binaries|module: cuda|bot-triaged|module: windows|needs reproduction|bot-mislabeled
+174296,10,1,4,1,jeffdaily,0,skipped|high priority|triage review
+174299,10,0,4,1,tugsbayasgalan,0,triaged|oncall: pt2|module: dynamic shapes|module: aotdispatch|bot-triaged|module: pt2-dispatcher|vllm-compile|module: vllm
+174304,9,0,3,0,,0,triage review|oncall: pt2|module: inductor|upstream triton|module: unsigned int|bot-triaged|triaged
+174306,10,1,4,0,,0,triage review|oncall: pt2|module: inductor|module: aotinductor|oncall: export|bot-triaged
+174315,8,0,3,1,howardzhang-cv,0,triage review|module: nn|module: regression|module: sdpa|bot-triaged
+174339,12,0,5,1,malfet,0,triage review|module: nn|module: correctness (silent)|module: mps|bot-triaged|high priority|triaged
+174344,12,0,3,1,malfet,0,triage review|module: dependency bug|module: binaries|module: crash|module: build|module: regression|module: arm|bot-triaged|module: third_party
+174345,13,0,4,0,,0,triage review|module: memory format|module: correctness (silent)|module: pooling|module: norms and normalization|module: mps|bot-triaged|high priority|triaged
+174353,6,0,3,0,,0,skipped|module: rocm|module: nn|triaged|bot-triaged
+174378,5,0,3,0,,0,oncall: pt2|module: unsigned int|triaged|module: inductor
+174379,8,0,5,1,shunting314,0,oncall: pt2|module: crash|triaged|module: dynamic shapes|module: inductor|PT2-Bug-Bash
+174391,2,0,2,0,,0,bot-triaged
+174441,10,0,3,0,,0,triage review|module: NaNs and Infs|module: regression|module: amp (automated mixed precision)|bot-triaged|needs reproduction|bot-mislabeled|triaged
+174459,9,0,5,1,yf225,0,oncall: pt2|high priority|module: inductor|triage review|triaged|PT2-Bug-Bash
+174467,7,0,4,1,yushangdi,0,triage review|oncall: pt2|module: aotinductor|oncall: export|bot-triaged
+174486,8,0,2,1,atalman,0,triage review|module: binaries|module: cuda|module: ci|module: regression|bot-triaged
+174502,8,0,3,0,,0,oncall: pt2|module: aotdispatch|compile-cache|vllm-compile|module: pt2-dispatcher|module: vllm|triaged
+174551,5,0,2,0,,0,triaged|module: sorting and selection|function request|bot-triaged
+174575,10,0,4,1,riccardofelluga,0,triage review|module: performance|module: regression|module: cuda graphs|oncall: pt2|bot-triaged|triaged
+174587,12,0,4,1,malfet,0,triage review|module: cpu|module: regression|bot-triaged|module: third_party|needs reproduction|triaged
+174600,4,0,2,0,,0,ci: sev|merge blocking|ci: disable-autorevert
+174601,7,0,2,0,,0,module: performance|feature|module: cuda|triaged|module: linear algebra|bot-triaged
+174637,9,0,4,0,,0,ci: sev|triage review|bot-triaged|ci: disable-autorevert|bot-mislabeled
+174666,4,0,3,0,,0,oncall: export|oncall: pt2|bot-triaged
+174672,6,0,5,1,etaf,0,oncall: pt2|module: xpu|bot-mislabeled|triaged
+174674,6,0,2,0,,0,module: cuda|module: linear algebra|topic: performance|triaged|bot-triaged
+174680,11,0,3,1,atalman,0,triage review|module: binaries|module: multiprocessing|module: dataloader|module: macos|module: arm|bot-triaged|high priority
+174731,13,0,2,0,,0,triage review|module: binaries|module: windows|module: cuda|module: cublas|bot-triaged|high priority|module: third_party|needs reproduction|triaged
+174770,5,0,3,1,etaf,0,triaged|skipped|module: xpu
+174775,9,0,2,0,,0,module: dependency bug|module: nn|triaged|module: numpy|module: half|module: intel|module: edge cases|bot-triaged
+174784,7,0,5,1,ahkush,0,oncall: export|oncall: pt2|bot-triaged|module: bootcamp|module: dynamo
+174785,7,0,2,0,,0,triage review|needs reproduction|module: binaries|module: numpy|module: arm|bot-triaged
+174801,9,0,3,1,anijain2305,0,triaged|oncall: pt2|module: dynamo|module: flex attention|module: python version|bot-triaged|dynamo-triage-dec2025
+174861,11,0,5,0,,0,module: correctness (silent)|module: macos|module: mps|module: sdpa|triage review|bot-triaged|high priority|module: regression|triaged
+174872,10,0,4,1,slayton58,0,triage review|module: nn|module: cuda|module: error checking|module: linear algebra|bot-triaged|triaged
+174878,6,0,2,0,,0,triage review|oncall: pt2|module: inductor|module: flex attention|bot-triaged
+174898,6,0,2,0,,0,triage review|module: build|module: cuda|module: abi|bot-triaged
+174900,2,0,2,0,,0,bot-triaged
+174917,4,0,3,0,,0,oncall: distributed|bot-triaged|feature
+174919,5,0,3,0,,0,module: ci|unstable|triaged|bot-triaged
+174921,9,0,5,0,,0,module: ci|unstable|oncall: releng|bot-triaged|oncall: pt2|module: inductor|module: pallas|triaged
+174923,8,0,3,0,,0,module: crash|module: cuda|oncall: pt2|module: inductor|module: flex attention|bot-triaged|triaged
+174961,5,0,2,0,,0,module: docs|module: nn|triaged|bot-triaged
+174963,6,0,4,1,riccardofelluga,0,oncall: pt2|triaged|module: inductor|topic: fuzzer
+174985,12,0,4,0,,0,triage review|module: NaNs and Infs|module: edge cases|topic: fuzzer|bot-triaged|bot-mislabeled|module: python frontend|triaged|actionable
+175019,4,0,2,0,,0,triaged|module: xpu|skipped
+175024,4,0,3,1,arkadip-maitra,0,oncall: distributed|bot-triaged
+175065,3,0,2,0,,0,oncall: distributed|skipped
+175084,8,0,4,0,,0,module: nn|triaged|bot-triaged|module: autograd|needs reproduction|bot-mislabeled|feature
+175165,5,0,2,0,,0,feature|module: autograd|triaged|bot-triaged
+175167,11,0,3,1,laithsakka,0,ciflow/inductor|module: inductor|oncall: pt2|module: dynamic shapes|triaged
+175187,11,0,3,0,,0,triage review|has workaround|module: correctness (silent)|module: sorting and selection|module: special|module: mps|bot-triaged|module: macos|module: third_party
+175188,10,0,3,0,,0,triage review|module: autograd|module: derivatives|has workaround|module: correctness (silent)|module: mps|bot-triaged
+175191,9,0,3,0,,0,triage review|has workaround|module: correctness (silent)|module: scatter & gather ops|module: mps|bot-triaged|bot-mislabeled
+175192,7,0,3,1,malfet,0,triage review|module: mps|bot-triaged|module: linear algebra|bot-mislabeled
+175240,6,0,2,0,,0,feature|triaged|module: numpy|module: advanced indexing|bot-triaged
+175250,17,0,7,1,shunting314,0,triage review|module: regression|has workaround|oncall: pt2|module: inductor|module: flex attention|bot-triaged|high priority|triaged
+175302,7,0,3,1,malfet,0,triage review|module: cpu|bot-triaged|module: sanitizers|module: arm
+175402,2,0,1,0,,0,bot-triaged
+175435,9,1,6,0,,0,vllm-compile|module: vllm|oncall: pt2|triaged
+175437,3,0,2,0,,0,triage review|bot-triaged
+175475,8,1,4,0,,0,triaged|module: xpu|skipped|oncall: pt2|bot-triaged
+175539,5,0,2,0,,0,module: onnx|feature|triaged|bot-triaged
+175545,4,0,2,0,,0,module: nn|triaged|bot-triaged
+175546,7,0,2,0,,0,module: cuda|triaged|oncall: pt2|module: dynamic shapes|module: inductor|bot-triaged
+175576,9,0,3,0,,0,triage review|module: mps|bot-triaged|needs reproduction|bot-mislabeled|high priority|module: correctness (silent)
+175615,4,0,2,0,,0,oncall: pt2|triaged|module: dynamo
+175666,7,0,2,0,,0,triage review|module: cuda|module: memory usage|module: regression|module: vllm|bot-triaged
+175690,5,0,2,1,Lucaskabela,0,oncall: distributed|oncall: pt2|bot-triaged
+175717,8,1,3,0,,0,triaged|module: xpu|skipped|module: tests|bot-triaged
+175718,8,1,3,0,,0,triaged|module: xpu|skipped|module: tests|bot-triaged
+175719,9,0,3,0,,0,triaged|module: xpu|skipped|module: tests|oncall: pt2|module: inductor|module: flex attention|bot-triaged
+175720,9,0,3,0,,0,triaged|module: xpu|skipped|module: tests|oncall: pt2|module: aotinductor|bot-triaged|oncall: export
+175728,6,0,2,0,,0,triage review|module: numerical-stability|oncall: pt2|module: inductor|bot-triaged
+175842,3,0,2,0,,0,oncall: profiler|bot-triaged
+175854,10,0,2,0,,0,triage review|module: numerical-stability|module: convolution|module: correctness (silent)|oncall: pt2|module: inductor|bot-triaged|triaged
+175856,2,0,2,0,,0,oncall: pt2
+175866,6,0,2,0,,0,triage review|module: nestedtensor|module: correctness (silent)|module: padding|bot-triaged
+175872,3,0,2,0,,0,oncall: jit|bot-triaged
+175875,12,0,6,0,,0,oncall: pt2|triage review|module: inductor|module: dynamo|bot-triaged|high priority|module: dynamic shapes|triaged|PT2-Bug-Bash
+175932,7,0,3,0,,0,triage review|module: nn|module: regression|bot-triaged|oncall: releng
+175952,13,0,5,1,yf225,0,triage review|module: numerical-stability|oncall: pt2|module: inductor|bot-triaged|high priority|triaged|PT2-Bug-Bash
+175982,8,0,3,0,,0,triage review|module: nn|module: memory format|bot-triaged|module: random|triaged
+176067,11,0,6,2,vvvdwbvvv,0,oncall: pt2|triaged|module: dynamic shapes|module: dynamo|bot-triaged|PT2-Bug-Bash
+176074,7,0,3,0,,0,skipped|module: macos|module: tests|triaged|module: mps|bot-triaged
+176080,6,0,3,1,NikhilAPatel,0,oncall: pt2|triaged|module: inductor|needs reproduction
+176093,4,0,2,0,,0,module: cuda|triaged|bot-triaged
+176102,7,0,3,0,,0,skipped|module: macos|module: tests|triaged|module: mps|bot-triaged
+176109,9,0,4,2,benjaminglass1,0,module: flaky-tests|skipped|oncall: pt2|module: inductor|triaged
+176110,9,0,4,2,benjaminglass1,0,module: flaky-tests|skipped|oncall: pt2|module: inductor|triaged
+176111,4,0,2,0,,0,oncall: distributed|module: flaky-tests|skipped
+176125,9,0,3,0,,0,skipped|module: xpu|module: tests|triaged|module: fakeTensor|bot-triaged|module: pt2-dispatcher|oncall: pt2
+176126,3,0,2,0,,0,bot-triaged|oncall: distributed
+176133,9,0,3,1,malfet,0,triage review|module: build|module: macos|module: regression|bot-triaged|bot-mislabeled
+176154,9,0,3,1,mlazos,0,triaged|module: regression|oncall: pt2|module: dynamo|bot-triaged|bot-mislabeled|module: compiled streams
+176155,4,0,2,0,,0,oncall: distributed|module: flaky-tests|skipped
+176176,8,0,3,0,,0,triaged|module: xpu|skipped|module: tests|module: inductor|bot-triaged|oncall: pt2
+176192,8,0,3,0,,0,module: docs|triaged|bot-triaged|triage review|module: nn|bot-mislabeled
+176254,6,0,2,0,,0,triage review|module: nn|bot-triaged|triaged
+176347,4,0,3,0,,0,oncall: pt2|triaged|oncall: export
+176358,6,0,3,0,,0,triaged|module: xpu|skipped|module: tests|bot-triaged
+176373,8,0,3,0,,0,triage review|module: windows|module: edge cases|bot-triaged|triaged
+176375,10,0,5,1,shunting314,0,triaged|module: codegen|oncall: pt2|module: dynamic shapes|module: inductor|bot-triaged|high priority|triage review
+176391,10,1,3,0,,0,skipped|module: xpu|module: tests|triaged|module: inductor|oncall: pt2|bot-triaged
+176417,10,0,5,2,NikhilAPatel,0,triage review|module: regression|oncall: pt2|module: inductor|bot-triaged
+176427,5,0,2,0,,0,module: onnx|module: rnn|triaged|bot-triaged
+176443,3,0,2,0,,0,oncall: distributed|bot-triaged
+176446,3,0,2,0,,0,oncall: distributed|bot-triaged
+176560,9,0,3,1,guangyey,0,triaged|module: python frontend|module: xpu|bot-triaged|module: accelerator|topic: bug fixes
+176565,8,0,3,1,PaulZhang12,0,triage review|module: bfloat16|module: correctness (silent)|oncall: pt2|module: inductor|bot-triaged
+176581,12,1,5,0,,0,triage review|module: regression|oncall: pt2|module: inductor|bot-triaged|vllm-compile|module: vllm|triaged
+176585,7,0,2,0,,0,triage review|module: build|module: windows|module: cuda|module: regression|bot-triaged
+176608,3,0,2,0,,0,triaged|oncall: pt2
+176621,8,0,6,0,,0,oncall: export|oncall: pt2|bot-triaged|module: floatx (formerly float8)|good first issue|PT2-Bug-Bash
+176630,3,0,2,0,,0,skipped|module: rocm
+176660,3,1,2,0,,0,
+176711,13,0,4,0,,0,triage review|module: crash|module: autograd|module: cpu|module: openmp|module: advanced indexing|module: inductor|oncall: cpu inductor|oncall: pt2|bot-triaged|triaged
+176739,10,0,4,0,,0,skipped|triage review|module: tests|module: regression|oncall: pt2|module: inductor|module: user triton|bot-triaged
+176767,9,0,4,0,,0,triage review|module: nn|module: mps|bot-triaged|module: correctness (silent)|module: sdpa|triaged
+176829,10,0,3,0,,0,oncall: distributed|bot-triaged|triage review|bot-mislabeled|module: binaries|high priority|needs reproduction
+176833,9,0,4,1,zhxchen17,0,high priority|triage review|module: regression|oncall: pt2|bot-triaged|triaged
+176851,11,0,5,0,,0,triage review|module: regression|oncall: pt2|module: dynamo|bot-triaged|dynamo-triage-dec2025|PT2-Bug-Bash|high priority|triaged
+176862,8,0,3,0,,0,triage review|oncall: pt2|module: dynamic shapes|module: dynamo|bot-triaged|triaged
+176970,6,0,2,0,,0,triaged|module: flaky-tests|skipped|module: inductor|oncall: pt2
+176993,6,0,2,0,,0,triage review|module: binaries|module: crash|module: arm|bot-triaged
+176995,5,0,2,0,,0,module: flaky-tests|skipped|oncall: export|oncall: pt2
+177013,6,0,2,0,,0,module: onnx|triaged|enhancement|has workaround|bot-triaged
+177017,3,0,2,0,,0,oncall: distributed|bot-triaged
+177029,5,0,2,0,,0,module: docs|triaged|enhancement|bot-triaged
+177030,7,0,3,0,,0,module: cuda|module: ci|module: tests|triaged|bot-triaged|module: vllm
+177044,13,0,5,0,,0,high priority|module: compile-time|triage review|oncall: pt2|module: performance|module: regression|module: dtensor|bot-triaged|bot-mislabeled
+177141,4,0,3,0,,0,skipped|oncall: distributed|bot-triaged
+177318,10,0,3,0,,0,triage review|module: autograd|module: correctness (silent)|inference mode|module: functorch|bot-triaged|high priority|triaged
+177406,7,0,2,0,,0,triage review|module: cuda|module: memory usage|module: convolution|module: regression|bot-triaged
+177426,9,0,3,1,huydhn,0,high priority|triage review|module: memory usage|module: regression|oncall: pt2|module: vllm|bot-triaged
+177442,15,0,4,0,,0,oncall: pt2|triage review|module: crash|module: pickle|module: inductor|module: compiled autograd|bot-triaged|bot-mislabeled|module: aotdispatch|module: pt2-dispatcher|triaged
+177485,16,0,7,1,xinyazhang,0,module: rocm|triage review|module: build|module: sdpa|bot-triaged|triaged|high priority|needs reproduction
+177517,7,0,3,0,,0,triaged|oncall: pt2|module: guards|module: higher order operators|module: pt2-dispatcher|bot-triaged
+177603,4,0,3,0,,0,oncall: export|bot-triaged|oncall: pt2
+177634,2,0,1,0,,0,bot-triaged
+177638,9,0,3,1,atalman,0,triage review|module: binaries|module: regression|bot-triaged|needs reproduction|module: wsl
+177822,2,0,1,0,,0,bot-triaged
+300387,3,0,1,0,,0,~chat-request-failed
+300388,3,0,1,0,,0,~chat-request-failed
+300394,6,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+300399,5,0,3,1,dmitrivMS,0,chat-ext-issue|triage-needed
+300401,4,0,1,0,,0,ai-translated|~chat-request-failed
+300413,11,0,4,3,zhichli,0,new release|triage-needed|feature-request|install-update
+300419,9,0,2,2,meganrogge,0,bug|*duplicate|info-needed|terminal-shell-fish|terminal-input
+300420,9,0,5,3,bpasero,0,chat-ext-issue|triage-needed
+300421,3,0,1,0,,0,~chat-request-failed
+300427,6,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+300441,4,0,1,0,,0,~spam|spam
+300446,8,0,4,2,bryanchen-d,0,triage-needed|bug|verified
+300449,4,0,1,0,,0,~chat-billing|chat-billing
+300451,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300462,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300471,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300476,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300479,7,0,2,1,connor4312,0,~info-needed|triage-needed|info-needed
+300480,7,0,4,2,DonJayamanne,0,copilot-cli-agent|unreleased|insiders-released
+300481,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300482,10,0,5,3,DonJayamanne,0,copilot-cli-agent|claude-agent|chat-external-agent|unreleased|insiders-released
+300500,10,0,3,1,jrieken,0,new release|bug|inline-chat|inline-chat-affordance|unreleased|insiders-released|verified
+300502,7,0,2,1,anthonykim1,0,new release|bug|terminal-input|terminal-shell-fish|*duplicate
+300503,3,0,1,0,,0,~chat-rate-limiting
+300507,3,0,2,2,meganrogge,0,
+300508,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300509,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300510,5,0,3,1,TylerLeonhardt,0,new release|info-needed
+300511,4,0,1,0,,0,~spam|spam
+300512,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300516,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300523,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300526,5,0,2,1,joshspicer,0,~chat-lm-unavailable|triage-needed
+300530,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300536,11,0,4,2,zhichli,0,new release|triage-needed|terminal-rendering|bug|*duplicate
+300542,3,0,1,0,,0,~chat-request-failed
+300545,9,0,4,2,TylerLeonhardt,0,claude-agent|chat-external-agent|bug|verified
+300548,3,0,1,0,,0,~chat-request-failed
+300549,8,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed|new release
+300553,6,0,3,2,justschen,0,claude-agent|info-needed
+300561,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300572,4,0,2,2,mjbvz,0,endgame-plan
+300581,6,0,2,1,TylerLeonhardt,0,claude-agent|info-needed
+300590,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300595,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300601,5,0,1,1,TylerLeonhardt,0,bug|important|engineering
+300602,6,0,4,2,aeschli,0,new release
+300611,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300621,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300626,5,0,1,0,,0,ai-translated|~chat-billing|chat-billing
+300627,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300630,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300631,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300634,7,0,3,2,jrieken,0,new release|info-needed
+300635,4,0,1,0,,0,~spam|spam
+300643,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300646,7,0,2,0,,0,~info-needed|triage-needed|info-needed
+300649,3,0,1,0,,0,~chat-request-failed
+300652,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300655,5,0,2,1,sandy081,0,new release|*duplicate
+300660,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300661,7,0,2,0,,0,chat-ext-issue|~info-needed|triage-needed|info-needed
+300667,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300668,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300670,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300671,3,0,1,0,,0,~chat-request-failed
+300672,6,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+300680,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300681,7,0,3,2,federicobrancasi,0,new release|triage-needed
+300690,6,0,1,0,,0,~info-needed|triage-needed|info-needed|invalid
+300692,5,0,2,1,hediet,0,ai-translated|new release
+300693,3,0,1,0,,0,~chat-request-failed
+300694,6,0,2,2,rzhao271,0,terminal|info-needed
+300695,3,0,1,0,,0,~chat-lm-unavailable
+300699,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300706,7,0,2,0,,0,chat-ext-issue|~info-needed|triage-needed|info-needed
+300715,3,0,1,0,,0,~chat-request-failed
+300719,5,0,2,1,mjbvz,0,~info-needed|info-needed
+300723,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300725,3,0,1,0,,0,~chat-request-failed
+300726,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300728,3,0,1,0,,0,~chat-request-failed
+300732,6,0,2,0,,0,chat-ext-issue|~chat-billing|chat-billing
+300733,6,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+300742,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300747,3,0,2,1,alexr00,0,info-needed
+300755,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300756,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300757,4,0,2,1,lramos15,0,new release|info-needed
+300761,4,0,3,1,chrmarti,0,new release
+300766,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300768,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300774,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300777,6,0,2,1,connor4312,0,triage-needed|~info-needed|info-needed
+300782,5,0,2,1,connor4312,0,new release|info-needed
+300783,3,0,1,0,,0,~chat-rate-limiting
+300785,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+300786,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+300789,4,0,1,0,,0,~chat-billing|chat-billing
+300792,9,0,3,1,TylerLeonhardt,0,triage-needed|~info-needed|info-needed|~spam|spam
+300798,6,0,3,1,jrieken,0,chat-ext-issue|new release|inline-chat
+300800,8,0,1,0,,0,ai-translated|~info-needed|triage-needed|new release|info-needed
+300801,8,0,1,0,,0,ai-translated|~info-needed|triage-needed|new release|info-needed
+300802,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300806,7,0,4,3,lramos15,0,triage-needed
+300814,7,0,3,2,meganrogge,0,new release|info-needed
+300829,6,0,2,0,,0,~info-needed|triage-needed|new release|info-needed
+300833,7,0,3,2,pwang347,0,bug|verification-steps-needed|verified
+300842,9,0,3,2,alexr00,0,triage-needed|feature-request|install-update|windows
+300853,3,0,1,0,,0,~chat-request-failed
+300856,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300859,3,0,3,1,roblourens,0,ai-translated
+300866,7,0,5,2,jukasper,0,testplan-item|browser-integration
+300867,3,0,2,1,sandy081,0,*duplicate
+300875,5,0,1,0,,0,ai-translated|~chat-request-failed|new release
+300876,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300888,7,0,1,0,,0,~info-needed|triage-needed|new release|info-needed
+300892,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300911,7,0,3,1,TylerLeonhardt,0,chat-ext-issue|new release|info-needed
+300918,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300919,15,0,5,4,alexr00,0,new release|triage-needed|bug|chat|unreleased|insiders-released
+300922,9,0,3,1,meganrogge,0,feature-request|chat-ask|unreleased|insiders-released|verification-needed|verified
+300928,4,0,1,0,,0,~spam|spam
+300930,5,0,3,1,DonJayamanne,0,new release|triage-needed
+300937,11,0,4,3,connor4312,0,triage-needed|~info-needed|info-needed
+300941,14,0,5,1,dmitrivMS,0,feature-request|telemetry|unreleased|insiders-released|verification-needed|~verification-steps-needed|verification-steps-needed|verified
+300947,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300959,7,0,1,0,,0,~info-needed|triage-needed|info-needed|new release
+300960,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300968,3,0,2,1,joshspicer,0,triage-needed
+300970,1,0,1,0,,0,
+300971,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300972,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300974,4,0,2,1,aeschli,0,info-needed
+300975,6,0,2,1,connor4312,0,triage-needed|~info-needed|info-needed
+300982,6,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+300984,3,0,1,0,,0,~chat-request-failed
+300985,3,0,1,1,sandy081,0,*duplicate
+300990,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+300996,3,0,2,1,hediet,0,triage-needed
+301001,3,0,2,1,sandy081,0,*duplicate
+301002,7,0,2,0,,0,chat-ext-issue|~info-needed|triage-needed|info-needed
+301011,5,0,2,2,sandy081,0,bug|upstream
+301013,9,0,4,2,connor4312,0,bug|important|copilot-cli-agent|unreleased|insiders-released
+301025,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301027,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301030,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301032,2,0,2,1,bhavyaus,0,
+301038,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301047,4,0,1,0,,0,ai-translated|~chat-request-failed
+301052,5,0,4,2,bhavyaus,0,triage-needed
+301058,6,0,2,1,rwoll,0,triage-needed|~info-needed|info-needed
+301060,13,0,5,4,meganrogge,0,triage-needed|bug|deb|install-update|packaging
+301064,6,0,1,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+301070,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301077,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301079,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301080,5,0,1,0,,0,~info-needed|triage-needed|info-needed
+301084,3,0,2,1,TylerLeonhardt,0,*duplicate
+301092,10,0,3,2,mjbvz,0,triage-needed|terminal-shell-fish|terminal-input|bug|*duplicate
+301094,4,0,3,1,connor4312,0,chat-ext-issue
+301107,4,0,3,1,chrmarti,0,chat-ext-issue
+301110,8,0,4,3,DonJayamanne,0,triage-needed
+301116,3,0,1,1,sandy081,0,*duplicate
+301121,16,0,4,2,pwang347,0,triage-needed|bug|install-update|unreleased|insiders-released|~verification-steps-needed|verification-steps-needed|verified
+301130,4,0,1,0,,0,~spam|spam
+301131,4,0,1,0,,0,~spam|spam
+301144,3,0,3,1,bryanchen-d,0,triage-needed
+301169,11,0,4,2,kycutler,0,browser-integration|polish|unreleased|insiders-released|feature-request|verification-needed|verified
+301234,6,0,3,2,federicobrancasi,0,testplan-item
+301243,1,0,1,0,,0,
+301244,3,0,3,1,sandy081,0,triage-needed
+301269,5,0,3,1,lramos15,0,chat-ext-issue|*duplicate
+301272,3,0,1,0,,0,~chat-request-failed
+301296,3,0,1,1,connor4312,0,bug
+301299,3,0,1,0,,0,~chat-request-failed
+301301,8,0,4,3,ntrogh,0,testplan-item
+301305,7,0,4,2,DonJayamanne,0,bug|copilot-cli-agent|important|verified
+301314,3,0,1,0,,0,~chat-request-failed
+301318,3,0,1,0,,0,~chat-lm-unavailable
+301324,2,0,1,1,meganrogge,0,
+301352,4,0,2,1,pwang347,0,ai-translated|triage-needed
+301377,11,0,3,1,connor4312,0,chat-ext-issue|~info-needed|triage-needed|info-needed|*duplicate
+301391,6,0,3,1,rzhao271,0,triage-needed|info-needed
+301394,3,0,1,1,sandy081,0,*duplicate
+301395,6,0,3,2,sbatten,0,triage-needed|*as-designed
+301403,3,0,1,1,sandy081,0,*duplicate
+301405,2,0,2,1,sandy081,0,
+301421,2,0,2,1,justschen,0,
+301426,4,0,1,0,,0,~spam|spam
+301428,2,0,1,1,meganrogge,0,
+301440,7,0,3,2,aiday-mar,0,triage-needed|*duplicate
+301451,4,0,2,0,,0,~spam|spam
+301458,14,0,7,3,sbatten,0,chat-ext-issue|triage-needed|bug|important|model-picker|author-verification-requested
+301464,4,0,1,0,,0,~chat-billing|chat-billing
+301491,15,0,5,4,bpasero,0,triage-needed|bug|install-update|windows|info-needed|unreleased|insiders-released
+301498,2,0,2,1,aiday-mar,0,
+301506,2,0,2,1,hediet,0,
+301508,11,0,2,3,meganrogge,0,terminal-input|bug|confirmation-pending|info-needed|*duplicate
+301515,4,0,1,0,,0,~spam|spam
+301518,9,0,4,2,connor4312,0,bug|chat-ask|unreleased|insiders-released|verified
+301521,4,0,1,0,,0,~chat-billing|chat-billing
+301530,4,0,1,0,,0,~chat-billing|chat-billing
+301541,3,0,1,1,mjbvz,0,endgame-plan
+301547,7,0,3,2,benibenj,0,triage-needed|*duplicate
+301552,8,0,4,3,rzhao271,0,testplan-item
+301553,3,0,2,1,meganrogge,0,info-needed
+301554,2,0,2,1,minsa110,0,
+301563,4,0,2,1,dmitrivMS,0,bug|accessibility
+301568,7,0,2,1,meganrogge,0,accessibility|bug|unreleased|insiders-released
+301578,3,0,1,0,,0,~chat-request-failed
+301581,4,0,1,0,,0,~spam|spam
+301594,7,0,1,1,anthonykim1,0,bug|terminal-links|copilot-cli-agent|copilot
+301608,8,0,2,1,meganrogge,0,bug|tasks|chat|unreleased|insiders-released
+301609,5,0,1,1,anthonykim1,0,bug|*as-designed|terminal-conpty
+301617,2,0,1,0,,0,chat-ext-issue
+301619,13,0,5,1,DonJayamanne,0,copilot-cli-agent|bug|info-needed|verification-found|verification-steps-needed|unreleased|verified
+301620,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+301641,4,0,1,0,,0,~chat-billing|chat-billing
+301654,3,0,1,0,,0,~chat-rate-limiting
+301685,4,0,1,0,,0,~spam|spam
+301694,4,0,3,1,lramos15,0,chat-ext-issue
+301702,4,0,1,0,,0,~chat-billing|chat-billing
+301715,7,0,3,2,Yoyokrazy,0,triage-needed|*duplicate
+301723,4,0,1,0,,0,~spam|spam
+301732,4,0,1,0,,0,ai-translated|~chat-request-failed
+301733,4,0,1,0,,0,ai-translated|~chat-request-failed
+301739,3,0,2,1,meganrogge,0,triage-needed
+301747,2,0,2,1,chrmarti,0,
+301748,9,0,3,2,aeschli,0,chat-prompts|feature-request|verification-needed|unreleased|insiders-released
+301753,3,0,1,1,aeschli,0,
+301754,3,0,1,1,sandy081,0,*duplicate
+301782,4,0,1,0,,0,~spam|spam
+301786,4,0,1,0,,0,~chat-billing|chat-billing
+301795,5,0,2,0,,0,chat-ext-issue|~chat-no-response-returned
+301802,3,0,1,1,sandy081,0,*duplicate
+301819,11,0,4,3,bpasero,0,bug|macos|candidate|unreleased|insiders-released
+301821,4,0,1,0,,0,~chat-billing|chat-billing
+301844,6,0,2,0,,0,chat-ext-issue|ai-translated|~chat-request-failed
+301858,4,0,3,1,pwang347,0,bug|verified
+301879,8,0,4,3,roblourens,0,bug|info-needed|copilot-cli-agent
+301886,9,0,4,3,mjbvz,0,triage-needed|vscode-website
+301912,3,0,1,1,sandy081,0,*duplicate
+301921,3,0,1,1,sandy081,0,*duplicate
+301922,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+301928,6,0,3,1,dileepyavan,0,bug|important|chat-terminal-sandbox|candidate
+301935,7,0,3,2,kycutler,0,triage-needed|info-needed
+301955,4,0,1,0,,0,~spam|spam
+301960,3,0,1,1,sandy081,0,*duplicate
+301961,3,0,1,1,sandy081,0,*duplicate
+301979,4,0,1,0,,0,~chat-billing|chat-billing
+301980,4,0,1,0,,0,~chat-billing|chat-billing
+301981,9,0,4,2,dmitrivMS,0,important|bug|install-update|unreleased|insiders-released
+301985,3,0,2,1,lramos15,0,info-needed
+301988,3,0,1,1,sandy081,0,*duplicate
+301989,4,0,1,0,,0,~chat-billing|chat-billing
+301993,5,0,3,1,lramos15,0,chat-ext-issue|info-needed
+302005,3,0,2,1,lramos15,0,triage-needed
+302014,6,0,2,1,anthonykim1,0,bug|info-needed|terminal-links|copilot
+302049,7,0,4,2,roblourens,0,chat-ext-issue|*duplicate
+302054,7,0,3,1,dmitrivMS,0,bug|install-update|unreleased|insiders-released
+302062,9,0,3,3,lramos15,0,bug|important|inline-chat
+302069,6,0,4,2,lramos15,0,chat-ext-issue
+302096,5,0,3,2,mjbvz,0,info-needed
+302097,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+302130,4,0,1,0,,0,ai-translated|~chat-request-failed
+302137,6,0,4,2,dileepyavan,0,triage-needed
+302174,7,0,2,0,,0,chat-ext-issue|~info-needed|triage-needed|info-needed
+302229,3,0,1,1,pwang347,0,bug
+302239,7,0,4,3,justschen,0,*as-designed
+302240,3,0,1,0,,0,~chat-lm-unavailable
+302242,3,0,1,0,,0,~chat-request-failed
+302279,11,0,5,3,bpasero,0,chat-agents-view|bug|unreleased|insiders-released|verified
+302281,5,0,2,1,joshspicer,0,unreleased|insiders-released
+302286,6,0,2,0,,0,ai-translated|~info-needed|triage-needed|info-needed
+302293,6,0,2,0,,0,~info-needed|triage-needed|info-needed
+302306,4,0,1,0,,0,~chat-billing|chat-billing
+302337,4,0,1,1,benibenj,0,bug|chat
+302345,3,0,1,1,lramos15,0,*not-reproducible
+302365,4,0,1,0,,0,~spam|spam
+302405,7,0,4,2,justschen,0,chat-ext-issue|*duplicate
+302438,3,0,1,0,,0,~chat-rate-limiting
+302439,4,0,1,0,,0,~spam|spam
+302443,4,0,1,0,,0,~chat-billing|chat-billing
+302452,6,0,4,3,lramos15,0,info-needed
+302465,3,0,1,0,,0,~chat-rate-limiting
+302467,5,0,2,0,,0,chat-ext-issue|~chat-rate-limiting
+302471,3,0,1,0,,0,~chat-rate-limiting
+302475,6,0,3,1,lramos15,0,chat-ext-issue|bug|model-byok
+302477,4,0,2,1,lramos15,0,bug|candidate
+302499,9,0,2,1,meganrogge,0,info-needed|bug|chat-terminal-output-monitor|unreleased|insiders-released
+302501,5,0,3,2,bhavyaus,0,*duplicate
+302502,13,2,2,1,lramos15,0,info-needed|bug|claude|model-picker|claude-agent
+302504,8,0,2,0,,0,~info-needed|triage-needed|info-needed|*duplicate
+302524,10,0,2,3,meganrogge,0,terminal-input|bug|*duplicate|terminal-shell-fish
+302525,4,0,1,0,,0,ai-translated|~chat-request-failed
+302559,3,0,1,0,,0,~chat-request-failed
+302560,3,0,1,0,,0,~chat-request-failed
+302561,3,0,1,0,,0,~chat-request-failed
+302565,4,0,2,1,mjbvz,0,~chat-request-failed
+302570,9,0,4,2,chrmarti,0,chat-ext-issue|triage-needed|*duplicate
+302578,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+302581,8,0,4,3,dileepyavan,0,triage-needed
+302585,2,0,2,1,chrmarti,0,
+302590,5,1,1,1,mjbvz,0,engineering
+302597,9,0,4,2,jruales,0,chat-ext-issue|triage-needed|bug
+302598,4,0,2,2,sandy081,0,
+302600,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+302613,4,0,3,2,meganrogge,0,*duplicate
+302614,3,0,1,0,,0,~chat-no-response-returned
+302642,2,0,1,1,lramos15,0,
+302649,3,0,1,0,,0,~chat-rate-limiting
+302657,3,0,1,0,,0,~chat-rate-limiting
+302660,2,0,1,1,benibenj,0,
+302668,2,0,1,1,benibenj,0,
+302669,5,0,2,1,benibenj,0,unreleased|insiders-released
+302675,4,0,1,0,,0,ai-translated|~chat-rate-limiting
+302694,4,0,1,0,,0,ai-translated|~chat-rate-limiting
+302705,3,0,1,0,,0,~chat-rate-limiting
+302707,8,0,4,3,lramos15,0,triage-needed|*question
+302709,3,0,3,1,deepak1556,0,triage-needed
+302715,3,0,1,0,,0,~chat-rate-limiting
+302717,4,0,2,1,justschen,0,triage-needed|*duplicate
+302723,4,0,1,0,,0,~chat-billing|chat-billing
+302725,3,0,1,0,,0,~chat-request-failed
+302735,5,0,2,0,,0,~info-needed|triage-needed|info-needed
+302786,4,0,1,0,,0,ai-translated|~chat-rate-limiting
+302789,2,0,1,0,,0,duplicate
+302805,6,0,2,1,Giuspepe,0,triage-needed|~chat-billing|chat-billing
+302822,4,0,2,1,aiday-mar,0,triage-needed|duplicate
+302826,3,0,2,1,isidorn,0,duplicate
+302827,4,0,2,1,connor4312,0,triage-needed|duplicate
+302828,4,0,2,1,meganrogge,0,triage-needed|duplicate
+302833,4,0,2,1,ulugbekna,0,triage-needed|duplicate
+302837,3,0,1,0,,0,~chat-rate-limiting
+302841,2,0,1,0,,0,duplicate
+302842,2,0,1,0,,0,duplicate
+302843,2,0,1,0,,0,duplicate
+302844,4,0,2,1,hediet,0,triage-needed|duplicate
+302845,4,0,2,1,lostintangent,0,triage-needed|duplicate
+302849,2,0,1,0,,0,duplicate
+302850,2,0,1,0,,0,duplicate
+302856,2,0,1,0,,0,duplicate
+302857,2,0,1,0,,0,duplicate
+302858,2,0,1,0,,0,duplicate
+302859,2,0,1,0,,0,duplicate
+302861,2,0,1,0,,0,duplicate
+302864,3,0,1,0,,0,ai-translated|duplicate
+302867,2,0,1,0,,0,duplicate
+302868,2,0,1,0,,0,duplicate
+302871,2,0,1,1,lramos15,0,
+302874,2,0,1,0,,0,duplicate
+302879,4,0,2,1,sandy081,0,error-list|*duplicate
+302882,2,0,1,0,,0,duplicate
+302886,2,0,1,0,,0,duplicate
+302889,9,0,2,1,dmitrivMS,0,triage-needed|~info-needed|info-needed|duplicate
+302894,4,0,2,0,,0,chat-ext-issue|duplicate
+302896,3,0,1,0,,0,duplicate|new release
+302899,3,0,1,0,,0,ai-translated|duplicate
+302918,3,0,1,0,,0,~chat-request-failed
+302919,3,0,1,0,,0,~chat-request-failed
+302921,2,0,1,0,,0,duplicate
+302922,2,0,1,0,,0,duplicate
+302924,2,0,1,0,,0,duplicate
+302925,2,0,1,0,,0,duplicate
+302928,2,0,1,0,,0,duplicate
+302945,3,0,1,0,,0,~chat-request-failed
+302954,2,0,1,0,,0,duplicate
+302956,2,0,1,0,,0,duplicate
+302957,2,0,1,0,,0,duplicate
+302992,5,0,2,0,,0,chat-ext-issue|~chat-request-failed
+302993,8,0,3,2,bpasero,0,bug|chat-agents-window|unreleased|insiders-released
+303006,2,0,1,0,,0,duplicate
+303023,2,0,1,0,,0,duplicate
+303025,6,0,2,0,,0,~info-needed|triage-needed|new release|info-needed
+303065,3,0,1,0,,0,~chat-request-failed
+303071,2,0,1,0,,0,duplicate
+303072,2,0,1,0,,0,duplicate
+303078,2,0,1,0,,0,duplicate
+303079,2,0,1,0,,0,duplicate
+303086,4,0,1,0,,0,ai-translated|duplicate|new release
+303087,4,0,1,0,,0,ai-translated|duplicate|new release
+303090,3,0,1,0,,0,~chat-request-failed
+303095,4,0,1,0,,0,ai-translated|duplicate|new release
+303105,2,0,1,0,,0,duplicate
+303108,2,0,1,0,,0,duplicate
+303122,2,0,1,0,,0,duplicate
+303124,2,0,1,0,,0,duplicate
+303125,2,0,1,0,,0,duplicate
+303131,2,0,1,0,,0,duplicate
+303132,2,0,1,0,,0,duplicate
+303140,2,0,1,1,alexr00,0,
+303141,4,0,1,0,,0,~chat-billing|chat-billing
+303154,5,0,1,0,,0,~spam|spam|invalid
+303162,3,0,2,0,,0,duplicate
+303165,2,0,1,0,,0,duplicate
+303166,2,0,1,0,,0,duplicate
+303167,2,0,1,0,,0,duplicate
+303177,6,0,2,0,,0,~info-needed|triage-needed|info-needed
+303181,2,0,1,0,,0,duplicate

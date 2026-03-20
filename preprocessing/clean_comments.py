@@ -1,11 +1,4 @@
-"""
-NexResolve — Step 2: Clean Comments
-Input : data/raw/comments.csv
-Output: data/intermediate/cleaned_comments.csv
-        data/intermediate/aggregated_comments.csv  (one row per issue)
 
-Run: python preprocessing/clean_comments.py
-"""
 
 import re
 import pandas as pd
@@ -135,7 +128,7 @@ def run(input_path: str = "data/raw/comments.csv",
         unique_commenters    = ("comment_author_login","nunique"),
     ).reset_index()
 
-    # ── Back-fill has_solution_comment into cleaned_issues ──────────────
+    
     try:
         ci = pd.read_csv(issues_path)
         sol_map = agg.set_index("issue_number")["has_solution_comment"].to_dict()

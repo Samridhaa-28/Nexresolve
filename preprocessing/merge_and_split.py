@@ -1,11 +1,5 @@
-"""
-NexResolve — Step 5: Merge + Split
-Reads  : data/final/final_dataset.csv
-Outputs: data/final/cleaned_issues.csv
-         data/final/processed_comments.csv
-         data/final/final_rl_dataset.csv
-         data/splits/train.csv  val.csv  test.csv  knowledge_base.csv
 
+"""
 Knowledge base strategy: ALL 852 issues included, tiered by quality
   tier1_verified  — closed + explicit solution comment  (weight 1.0)
   tier2_discussed — closed + >=2 comments, no solution tag (weight 0.7)

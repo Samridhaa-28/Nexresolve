@@ -1,10 +1,4 @@
-"""
-NexResolve — Step 1: Clean Issues
-Input : data/raw/issues.csv
-Output: data/intermediate/cleaned_issues.csv
 
-Run: python preprocessing/clean_issues.py
-"""
 
 import re
 import ast

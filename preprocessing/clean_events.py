@@ -1,18 +1,9 @@
-"""
-NexResolve — Step 3: Clean Events
-Input : data/raw/events.csv
-Output: data/intermediate/cleaned_events.csv
-        data/intermediate/aggregated_events.csv  (one row per issue)
 
-Run: python preprocessing/clean_events.py
-"""
 
 import pandas as pd
 
 
-# ─────────────────────────────────────────────
-# Useful event types (signal-bearing only)
-# ─────────────────────────────────────────────
+
 USEFUL_EVENTS = {
     "assigned", "unassigned", "labeled", "unlabeled",
     "closed", "reopened", "mentioned", "referenced",
@@ -76,11 +67,10 @@ def run(input_path: str = "data/raw/events.csv",
     )
     agg = agg.merge(first_assignee, on="issue_number", how="left")
 
-    # sla_breach_flag — will be properly computed in feature_engineering.py
-    # but we add a placeholder here
+  
     agg["sla_breach_flag"] = 0
 
-    # all_labels_seen — useful for NLP label distribution analysis
+    # all_labels_seen 
     labels_seen = (
         labeled_df.groupby("issue_number")["label_name"]
         .apply(lambda x: "|".join(x.dropna().unique()))

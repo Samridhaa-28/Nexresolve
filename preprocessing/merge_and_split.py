@@ -170,6 +170,11 @@ def run(final_path           = "data/final/final_dataset.csv",
         stratify=tv_strat
     )
 
+    # Fill all_comments_text nulls before writing splits
+    # 188 issues had bot-only comments filtered out — use sentinel
+    for df in [train, val, test]:
+        df["all_comments_text"] = df["all_comments_text"].fillna("NO_COMMENTS")
+
     train.to_csv(f"{split_dir}/train.csv", index=False)
     val.to_csv(  f"{split_dir}/val.csv",   index=False)
     test.to_csv( f"{split_dir}/test.csv",  index=False)

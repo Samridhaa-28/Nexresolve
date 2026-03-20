@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+venv/
+
+data\intermediate\
+data\final\
+data\splits\
+
+models/
+
+.ipynb_checkpoints/
+.env

@@ -1,0 +1,72 @@
+
+========================================================================
+  MODEL COMPARISON — Val Set vs Test Set
+========================================================================
+  Model                      ValAcc  ValPrec  ValRec   ValF1  ValAUC   TestF1     Gap    OF
+  ────────────────────────────────────────────────────────────────────────
+  Rule-Based                42.19%   0.4250  0.5484  0.4789  0.4267   0.5868  0.1079   YES
+  Logistic Regression       60.16%   0.5902  0.5806  0.5854  0.6422   0.6531  0.0677   YES
+  Gradient Boosting         67.19%   0.6389  0.7419  0.6866  0.7617   0.6957  0.0091    no
+
+========================================================================
+  THRESHOLD ANALYSIS
+========================================================================
+  Model:                 gradboost
+  Selection criterion:   F1 on breach class (class=1)
+  Recommended threshold: 0.55
+  F1 at recommended:     0.6923
+
+       T |    Prec     Rec      F1     Acc |  Urgent%
+  ────────────────────────────────────────────────────
+    0.30 |   0.600   0.823   0.694   0.648 |    66.4%
+    0.35 |   0.622   0.823   0.708   0.672 |    64.1%
+    0.40 |   0.623   0.774   0.691   0.664 |    60.2%
+    0.45 |   0.622   0.742   0.676   0.656 |    57.8%
+    0.50 |   0.639   0.742   0.687   0.672 |    56.2%
+    0.55 |   0.662   0.726   0.692   0.688 |    53.1% ←
+    0.60 |   0.667   0.677   0.672   0.680 |    49.2%
+    0.65 |   0.690   0.645   0.667   0.688 |    45.3%
+    0.70 |   0.685   0.597   0.638   0.672 |    42.2%
+
+========================================================================
+  FEATURE ANALYSIS
+========================================================================
+
+  Logistic Regression — coefficient:
+    text_length                   :  -0.7503  |██████████████████████
+    word_count                    : +  0.5886  |█████████████████
+    sla_limit_hours               :  -0.4780  |██████████████
+    urgency_keyword_flag          :  -0.4748  |██████████████
+    frustration_score             : +  0.3972  |███████████
+    turn_count                    : +  0.3807  |███████████
+    question_mark_flag            : +  0.3129  |█████████
+    missing_error_flag            :  -0.2272  |██████
+    reassignment_count            : +  0.1782  |█████
+    reopen_count                  : +  0.1398  |████
+    missing_version_flag          :  -0.0824  |██
+
+  Gradient Boosting — importance:
+    word_count                    : +  0.2537  |███████
+    text_length                   : +  0.2323  |██████
+    frustration_score             : +  0.2116  |██████
+    sla_limit_hours               : +  0.1245  |███
+    turn_count                    : +  0.0718  |██
+    question_mark_flag            : +  0.0326  |
+    reassignment_count            : +  0.0316  |
+    urgency_keyword_flag          : +  0.0191  |
+    missing_error_flag            : +  0.0114  |
+    missing_version_flag          : +  0.0094  |
+    reopen_count                  : +  0.0020  |
+
+========================================================================
+  RECOMMENDATION
+========================================================================
+  Best model     : Gradient Boosting
+  Val F1         : 0.6866  ← selection metric
+  Val Recall     : 0.7419  (catching urgent tickets)
+  Val ROC-AUC    : 0.7617
+  Threshold      : 0.55
+
+  RL readiness : urgent_flag is set when urgency_score >= 0.55. The RL agent uses this flag to prioritise tickets and weight rewards. High urgency + SLA breach penalty drives the agent to resolve urgent tickets faster.
+
+  Next step    : Run urgency_predictor.py --mode generate to write urgency_score and urgent_flag into final_rl_dataset.csv, then proceed to entity_extractor.py.

@@ -1,0 +1,231 @@
+{
+  "generated_at": "2026-03-21T19:40:46.964730",
+  "comparison": {
+    "rows": [
+      {
+        "model": "Rule-Based",
+        "val_accuracy": 0.4219,
+        "val_precision": 0.425,
+        "val_recall": 0.5484,
+        "val_f1": 0.4789,
+        "val_roc_auc": 0.4267,
+        "val_avg_prec": 0.4395,
+        "test_accuracy": 0.4609,
+        "test_f1": 0.5868,
+        "test_roc_auc": 0.3946,
+        "f1_gap": 0.1079,
+        "overfit": true
+      },
+      {
+        "model": "Logistic Regression",
+        "val_accuracy": 0.6016,
+        "val_precision": 0.5902,
+        "val_recall": 0.5806,
+        "val_f1": 0.5854,
+        "val_roc_auc": 0.6422,
+        "val_avg_prec": 0.5448,
+        "test_accuracy": 0.6016,
+        "test_f1": 0.6531,
+        "test_roc_auc": 0.6854,
+        "f1_gap": 0.0677,
+        "overfit": true
+      },
+      {
+        "model": "Gradient Boosting",
+        "val_accuracy": 0.6719,
+        "val_precision": 0.6389,
+        "val_recall": 0.7419,
+        "val_f1": 0.6866,
+        "val_roc_auc": 0.7617,
+        "val_avg_prec": 0.7326,
+        "test_accuracy": 0.6719,
+        "test_f1": 0.6957,
+        "test_roc_auc": 0.7609,
+        "f1_gap": 0.0091,
+        "overfit": false
+      }
+    ]
+  },
+  "threshold": {
+    "model_type": "gradboost",
+    "recommended_threshold": 0.55,
+    "recommended_f1": 0.6923,
+    "selection_criterion": "F1 on breach class (class=1)",
+    "per_threshold": {
+      "0.3": {
+        "threshold": 0.3,
+        "f1": 0.6939,
+        "precision": 0.6,
+        "recall": 0.8226,
+        "accuracy": 0.6484,
+        "urgent_pct": 66.41,
+        "over_flag_pct": 17.97
+      },
+      "0.35": {
+        "threshold": 0.35,
+        "f1": 0.7083,
+        "precision": 0.622,
+        "recall": 0.8226,
+        "accuracy": 0.6719,
+        "urgent_pct": 64.06,
+        "over_flag_pct": 15.62
+      },
+      "0.4": {
+        "threshold": 0.4,
+        "f1": 0.6906,
+        "precision": 0.6234,
+        "recall": 0.7742,
+        "accuracy": 0.6641,
+        "urgent_pct": 60.16,
+        "over_flag_pct": 11.72
+      },
+      "0.45": {
+        "threshold": 0.45,
+        "f1": 0.6765,
+        "precision": 0.6216,
+        "recall": 0.7419,
+        "accuracy": 0.6562,
+        "urgent_pct": 57.81,
+        "over_flag_pct": 9.38
+      },
+      "0.5": {
+        "threshold": 0.5,
+        "f1": 0.6866,
+        "precision": 0.6389,
+        "recall": 0.7419,
+        "accuracy": 0.6719,
+        "urgent_pct": 56.25,
+        "over_flag_pct": 7.81
+      },
+      "0.55": {
+        "threshold": 0.55,
+        "f1": 0.6923,
+        "precision": 0.6618,
+        "recall": 0.7258,
+        "accuracy": 0.6875,
+        "urgent_pct": 53.12,
+        "over_flag_pct": 4.69
+      },
+      "0.6": {
+        "threshold": 0.6,
+        "f1": 0.672,
+        "precision": 0.6667,
+        "recall": 0.6774,
+        "accuracy": 0.6797,
+        "urgent_pct": 49.22,
+        "over_flag_pct": 0.78
+      },
+      "0.65": {
+        "threshold": 0.65,
+        "f1": 0.6667,
+        "precision": 0.6897,
+        "recall": 0.6452,
+        "accuracy": 0.6875,
+        "urgent_pct": 45.31,
+        "over_flag_pct": -3.12
+      },
+      "0.7": {
+        "threshold": 0.7,
+        "f1": 0.6379,
+        "precision": 0.6852,
+        "recall": 0.5968,
+        "accuracy": 0.6719,
+        "urgent_pct": 42.19,
+        "over_flag_pct": -6.25
+      }
+    }
+  },
+  "feature_analysis": {
+    "Logistic Regression": {
+      "type": "coefficient",
+      "values": {
+        "urgency_keyword_flag": -0.4748,
+        "word_count": 0.5886,
+        "question_mark_flag": 0.3129,
+        "missing_error_flag": -0.2272,
+        "missing_version_flag": -0.0824,
+        "sla_limit_hours": -0.478,
+        "text_length": -0.7503,
+        "turn_count": 0.3807,
+        "reassignment_count": 0.1782,
+        "reopen_count": 0.1398,
+        "frustration_score": 0.3972
+      }
+    },
+    "Gradient Boosting": {
+      "type": "importance",
+      "values": {
+        "urgency_keyword_flag": 0.0191,
+        "word_count": 0.2537,
+        "question_mark_flag": 0.0326,
+        "missing_error_flag": 0.0114,
+        "missing_version_flag": 0.0094,
+        "sla_limit_hours": 0.1245,
+        "text_length": 0.2323,
+        "turn_count": 0.0718,
+        "reassignment_count": 0.0316,
+        "reopen_count": 0.002,
+        "frustration_score": 0.2116
+      }
+    }
+  },
+  "recommendation": {
+    "best_model": "Gradient Boosting",
+    "val_f1": 0.6866,
+    "val_recall": 0.7419,
+    "val_roc_auc": 0.7617,
+    "threshold": 0.55,
+    "gap_note": "",
+    "rl_readiness": "urgent_flag is set when urgency_score >= 0.55. The RL agent uses this flag to prioritise tickets and weight rewards. High urgency + SLA breach penalty drives the agent to resolve urgent tickets faster.",
+    "next_step": "Run urgency_predictor.py --mode generate to write urgency_score and urgent_flag into final_rl_dataset.csv, then proceed to entity_extractor.py."
+  },
+  "best_model": {
+    "best_model": "Gradient Boosting",
+    "best_model_path": "models/nlp\\urgency_gradboost.pkl",
+    "selection_metric": "f1",
+    "selection_reason": "F1 on breach class chosen because missing an urgent ticket (false negative) is worse than over-flagging a normal one. F1 balances precision and recall for the urgent class.",
+    "comparison": [
+      {
+        "model": "Rule-Based",
+        "accuracy": 0.4219,
+        "precision": 0.425,
+        "recall": 0.5484,
+        "f1": 0.4789,
+        "roc_auc": 0.4267,
+        "avg_precision": 0.4395
+      },
+      {
+        "model": "Logistic Regression",
+        "accuracy": 0.6016,
+        "precision": 0.5902,
+        "recall": 0.5806,
+        "f1": 0.5854,
+        "roc_auc": 0.6422,
+        "avg_precision": 0.5448
+      },
+      {
+        "model": "Gradient Boosting",
+        "accuracy": 0.6719,
+        "precision": 0.6389,
+        "recall": 0.7419,
+        "f1": 0.6866,
+        "roc_auc": 0.7617,
+        "avg_precision": 0.7326
+      }
+    ],
+    "urgent_threshold": 0.5,
+    "feature_cols": [
+      "urgency_keyword_flag",
+      "word_count",
+      "question_mark_flag",
+      "missing_error_flag",
+      "missing_version_flag",
+      "sla_limit_hours",
+      "text_length",
+      "turn_count",
+      "reassignment_count",
+      "reopen_count",
+      "frustration_score"
+    ]
+  }
+}

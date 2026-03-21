@@ -1,0 +1,72 @@
+
+========================================================================
+  MODEL COMPARISON — Val Set vs Test Set
+========================================================================
+  Model                         ValAcc  ValWF1  TestAcc  TestWF1     Gap  Overfit
+  ──────────────────────────────────────────────────────────────────────
+  TF-IDF + LogReg                41.4%  0.4152    44.5%   0.4187  0.0035       no
+  TF-IDF + SVM                   56.2%  0.5511    48.4%   0.4806  0.0705      YES
+  DistilBERT                     50.8%  0.5118    44.5%   0.4453  0.0665      YES
+
+========================================================================
+  PER-CLASS ANALYSIS — Best Model
+========================================================================
+  Well-learned  (F1 >= 0.6) :  2 classes
+  Partial       (0.3–0.6)   :  6 classes
+  Poorly-learned (F1 < 0.3) :  1 classes
+
+  [WELL-LEARNED]
+  Class                      F1      P      R     n
+  ────────────────────────────────────────────
+  needs_info              0.704  0.623  0.808    47  ███████████
+  docs                    0.800  1.000  0.667     3  ████████████
+
+  [PARTIAL]
+  Class                      F1      P      R     n
+  ────────────────────────────────────────────
+  other                   0.529  0.750  0.409    22  ████████
+  bug                     0.378  0.412  0.350    20  ██████
+  ml_module               0.414  0.429  0.400    15  ██████
+  duplicate               0.522  0.500  0.545    11  ████████
+  build_infra             0.400  0.333  0.500     6  ██████
+  billing                 0.500  1.000  0.333     3  ████████
+
+  [POORLY-LEARNED]
+  Class                      F1      P      R     n
+  ────────────────────────────────────────────
+  enhancement             0.000  0.000  0.000     1  
+
+========================================================================
+  CONFIDENCE & UNCERTAINTY ANALYSIS
+========================================================================
+
+  TF-IDF + LogReg
+    Uncertainty rate : 95.3%
+    Avg confidence   : 0.3518
+    RL impact        : CRITICAL — >90% uncertain. uncertainty_flag=1 for almost every prediction. RL Suggest action will almost never fire.
+
+  TF-IDF + SVM
+    Uncertainty rate : 70.3%
+    Avg confidence   : 0.5136
+    RL impact        : HIGH — >70% uncertain. RL will prefer Clarify heavily. Acceptable for baseline experiments.
+
+  DistilBERT
+    Uncertainty rate : 58.6%
+    Avg confidence   : 0.5722
+    RL impact        : MODERATE — 40-70% uncertain. RL has a good mix of certain and uncertain predictions to learn from.
+
+========================================================================
+  RECOMMENDATION
+========================================================================
+  Best model       : TF-IDF + SVM
+  Val accuracy     : 56.25%
+  Val weighted F1  : 0.5511
+  Uncertainty rate : 70.3%
+
+  Val Weighted F1=0.5511  |  Test Weighted F1=0.4806  |  Gap=0.0705  (possible overfit)
+
+  RL readiness  : RL pipeline can proceed with the current best model. uncertainty_flag=1 for 70.3% of predictions — the RL agent will use Clarify for these, which is the correct safe fallback when intent classification is uncertain.
+
+  Ceiling note  : Performance ceiling with this dataset (596 train, 9 classes, avg 66/class): ~55-60% accuracy. The primary bottleneck is needs_info (220 samples, workflow-state label indistinguishable from bugs) and enhancement (9 samples, unlearnable). These are data limitations, not model limitations.
+
+  Next step     : Run confidence_estimator.py --mode generate --model best to write intent features into final_rl_dataset.csv, then proceed to urgency_predictor.py.

@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-03-21T16:06:34.164349",
+  "comparison": {
+    "rows": [
+      {
+        "model": "TF-IDF + LogReg",
+        "val_accuracy": 0.4141,
+        "val_macro_f1": 0.449,
+        "val_weighted_f1": 0.4152,
+        "val_macro_precision": 0.4825,
+        "val_macro_recall": 0.5023,
+        "val_uncertainty_rate": 0.9531,
+        "val_avg_confidence": 0.3518,
+        "test_accuracy": 0.4453,
+        "test_macro_f1": 0.4483,
+        "test_weighted_f1": 0.4187,
+        "test_uncertainty_rate": 0.9688,
+        "wtd_f1_gap": 0.0035,
+        "overfit_flag": false
+      },
+      {
+        "model": "TF-IDF + SVM",
+        "val_accuracy": 0.5625,
+        "val_macro_f1": 0.4719,
+        "val_weighted_f1": 0.5511,
+        "val_macro_precision": 0.5607,
+        "val_macro_recall": 0.4459,
+        "val_uncertainty_rate": 0.7031,
+        "val_avg_confidence": 0.5136,
+        "test_accuracy": 0.4844,
+        "test_macro_f1": 0.4404,
+        "test_weighted_f1": 0.4806,
+        "test_uncertainty_rate": 0.75,
+        "wtd_f1_gap": 0.0705,
+        "overfit_flag": true
+      },
+      {
+        "model": "DistilBERT",
+        "val_accuracy": 0.5078,
+        "val_macro_f1": 0.4722,
+        "val_weighted_f1": 0.5118,
+        "val_macro_precision": 0.5425,
+        "val_macro_recall": 0.4932,
+        "val_uncertainty_rate": 0.5859,
+        "val_avg_confidence": 0.5722,
+        "test_accuracy": 0.4453,
+        "test_macro_f1": 0.4454,
+        "test_weighted_f1": 0.4453,
+        "test_uncertainty_rate": 0.6953,
+        "wtd_f1_gap": 0.0665,
+        "overfit_flag": true
+      }
+    ]
+  },
+  "per_class": {
+    "counts": {
+      "well": 2,
+      "partial": 6,
+      "poor": 1
+    },
+    "well_learned": [
+      {
+        "class": "needs_info",
+        "f1": 0.7037,
+        "precision": 0.623,
+        "recall": 0.8085,
+        "support": 47
+      },
+      {
+        "class": "docs",
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "support": 3
+      }
+    ],
+    "partial": [
+      {
+        "class": "other",
+        "f1": 0.5294,
+        "precision": 0.75,
+        "recall": 0.4091,
+        "support": 22
+      },
+      {
+        "class": "bug",
+        "f1": 0.3784,
+        "precision": 0.4118,
+        "recall": 0.35,
+        "support": 20
+      },
+      {
+        "class": "ml_module",
+        "f1": 0.4138,
+        "precision": 0.4286,
+        "recall": 0.4,
+        "support": 15
+      },
+      {
+        "class": "duplicate",
+        "f1": 0.5217,
+        "precision": 0.5,
+        "recall": 0.5455,
+        "support": 11
+      },
+      {
+        "class": "build_infra",
+        "f1": 0.4,
+        "precision": 0.3333,
+        "recall": 0.5,
+        "support": 6
+      },
+      {
+        "class": "billing",
+        "f1": 0.5,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "support": 3
+      }
+    ],
+    "poorly_learned": [
+      {
+        "class": "enhancement",
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 1
+      }
+    ]
+  },
+  "confidence": {
+    "TF-IDF + LogReg": {
+      "uncertainty_rate": 0.9531,
+      "avg_confidence": 0.3518,
+      "rl_impact": "CRITICAL — >90% uncertain. uncertainty_flag=1 for almost every prediction. RL Suggest action will almost never fire."
+    },
+    "TF-IDF + SVM": {
+      "uncertainty_rate": 0.7031,
+      "avg_confidence": 0.5136,
+      "rl_impact": "HIGH — >70% uncertain. RL will prefer Clarify heavily. Acceptable for baseline experiments."
+    },
+    "DistilBERT": {
+      "uncertainty_rate": 0.5859,
+      "avg_confidence": 0.5722,
+      "rl_impact": "MODERATE — 40-70% uncertain. RL has a good mix of certain and uncertain predictions to learn from."
+    }
+  },
+  "recommendation": {
+    "best_model": "TF-IDF + SVM",
+    "best_metrics": {
+      "val_accuracy": 0.5625,
+      "val_weighted_f1": 0.5511,
+      "uncertainty_rate": 0.7031
+    },
+    "gap_note": "Val Weighted F1=0.5511  |  Test Weighted F1=0.4806  |  Gap=0.0705  (possible overfit)",
+    "rl_readiness": "RL pipeline can proceed with the current best model. uncertainty_flag=1 for 70.3% of predictions — the RL agent will use Clarify for these, which is the correct safe fallback when intent classification is uncertain.",
+    "ceiling_note": "Performance ceiling with this dataset (596 train, 9 classes, avg 66/class): ~55-60% accuracy. The primary bottleneck is needs_info (220 samples, workflow-state label indistinguishable from bugs) and enhancement (9 samples, unlearnable). These are data limitations, not model limitations.",
+    "next_step": "Run confidence_estimator.py --mode generate --model best to write intent features into final_rl_dataset.csv, then proceed to urgency_predictor.py."
+  },
+  "best_model": {
+    "best_model": "TF-IDF + SVM",
+    "best_model_path": "models/nlp\\intent_tfidf_svm.pkl",
+    "selection_metric": "weighted_f1",
+    "selection_reason": "Weighted F1 is used because the dataset has a 24:1 class imbalance. It weights each class by its support in the val set, reflecting the real-world distribution better than macro F1.",
+    "comparison": [
+      {
+        "model": "TF-IDF + LogReg",
+        "accuracy": 0.4141,
+        "macro_f1": 0.449,
+        "weighted_f1": 0.4152,
+        "macro_precision": 0.4825,
+        "macro_recall": 0.5023,
+        "uncertainty_rate": 0.9531,
+        "avg_confidence": 0.3518
+      },
+      {
+        "model": "TF-IDF + SVM",
+        "accuracy": 0.5625,
+        "macro_f1": 0.4719,
+        "weighted_f1": 0.5511,
+        "macro_precision": 0.5607,
+        "macro_recall": 0.4459,
+        "uncertainty_rate": 0.7031,
+        "avg_confidence": 0.5136
+      },
+      {
+        "model": "DistilBERT",
+        "accuracy": 0.5078,
+        "macro_f1": 0.4722,
+        "weighted_f1": 0.5118,
+        "macro_precision": 0.5425,
+        "macro_recall": 0.4932,
+        "uncertainty_rate": 0.5859,
+        "avg_confidence": 0.5722
+      }
+    ],
+    "intent_to_action": {
+      "bug": "route_technical",
+      "needs_info": "clarify",
+      "duplicate": "route_duplicate",
+      "enhancement": "route_product",
+      "billing": "route_billing",
+      "docs": "route_docs",
+      "build_infra": "route_infra",
+      "ml_module": "route_technical",
+      "other": "clarify"
+    },
+    "intent_groups": [
+      "bug",
+      "needs_info",
+      "duplicate",
+      "enhancement",
+      "billing",
+      "docs",
+      "build_infra",
+      "ml_module",
+      "other"
+    ],
+    "uncertainty_threshold": 0.6
+  }
+}

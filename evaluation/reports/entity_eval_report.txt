@@ -1,0 +1,37 @@
+
+========================================================================
+  APPROACH COMPARISON  (Val vs Test)
+========================================================================
+  Approach        MacroP    MacroR     ValF1    TestF1      Gap    OF
+  ────────────────────────────────────────────────────────────
+  Regex           1.0000    0.7690    0.8558    0.8634   0.0076    no
+  spaCy           1.0000    0.7301    0.8295    0.8186   0.0109    no
+  GLiNER          1.0000    0.7409    0.8494    0.8277   0.0217    no
+
+========================================================================
+  PER-ENTITY BREAKDOWN — Regex
+========================================================================
+  Entity             Prec     Rec      F1  Support    TP    FP    FN
+  ────────────────────────────────────────────────────────────
+  version          1.0000  0.9255  0.9613       94    87     0     7  |███████████████████
+  error_type       1.0000  0.4762  0.6452       21    10     0    11  |████████████
+  platform         1.0000  0.7423  0.8521       97    72     0    25  |█████████████████
+  hardware         1.0000  0.9318  0.9647       88    82     0     6  |███████████████████
+
+========================================================================
+  ANNOTATION STRATEGY
+========================================================================
+  Hybrid Union Silver Standard: has_entity=1 if Regex OR GLiNER detects entity. Covers structured template issues (Regex) and informal free-text issues (GLiNER).
+
+========================================================================
+  RECOMMENDATION
+========================================================================
+  Best approach    : Regex
+  Val Macro F1     : 0.8558  ← selection metric
+  Selection reason : Macro F1 averaged across all 4 entity types. F1 chosen over precision because missing an entity (FN) is worse than a false positive — incomplete RL state is harder to recover from than a slightly noisy state.
+
+  Val Macro F1=0.8558  |  Test Macro F1=0.8634  |  Gap=0.0076  (stable)
+
+  RL readiness : Entity flags (has_version, has_error_type, has_platform, has_hardware) are now in final_rl_dataset.csv. The RL agent uses these to understand how complete the ticket information is. entity_count=0 → likely needs clarification. entity_count=4 → fully specified → safe to route.
+
+  Next step    : Run entity_extractor.py --mode generate to write flags into CSVs, then proceed to missing_detector.py (Step 8).

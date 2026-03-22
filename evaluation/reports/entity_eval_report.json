@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-03-22T18:41:27.058106",
+  "comparison": {
+    "rows": [
+      {
+        "approach": "Regex",
+        "val_macro_p": 1.0,
+        "val_macro_r": 0.769,
+        "val_macro_f1": 0.8558,
+        "test_macro_f1": 0.8634,
+        "f1_gap": 0.0076,
+        "overfit": false
+      },
+      {
+        "approach": "spaCy",
+        "val_macro_p": 1.0,
+        "val_macro_r": 0.7301,
+        "val_macro_f1": 0.8295,
+        "test_macro_f1": 0.8186,
+        "f1_gap": 0.0109,
+        "overfit": false
+      },
+      {
+        "approach": "GLiNER",
+        "val_macro_p": 1.0,
+        "val_macro_r": 0.7409,
+        "val_macro_f1": 0.8494,
+        "test_macro_f1": 0.8277,
+        "f1_gap": 0.0217,
+        "overfit": false
+      }
+    ]
+  },
+  "per_entity": {
+    "rows": [
+      {
+        "entity_type": "version",
+        "precision": 1.0,
+        "recall": 0.9255,
+        "f1": 0.9613,
+        "support": 94,
+        "tp": 87,
+        "fp": 0,
+        "fn": 7
+      },
+      {
+        "entity_type": "error_type",
+        "precision": 1.0,
+        "recall": 0.4762,
+        "f1": 0.6452,
+        "support": 21,
+        "tp": 10,
+        "fp": 0,
+        "fn": 11
+      },
+      {
+        "entity_type": "platform",
+        "precision": 1.0,
+        "recall": 0.7423,
+        "f1": 0.8521,
+        "support": 97,
+        "tp": 72,
+        "fp": 0,
+        "fn": 25
+      },
+      {
+        "entity_type": "hardware",
+        "precision": 1.0,
+        "recall": 0.9318,
+        "f1": 0.9647,
+        "support": 88,
+        "tp": 82,
+        "fp": 0,
+        "fn": 6
+      }
+    ],
+    "best_approach": "Regex"
+  },
+  "annotation": "Hybrid Union Silver Standard: has_entity=1 if Regex OR GLiNER detects entity. Covers structured template issues (Regex) and informal free-text issues (GLiNER).",
+  "recommendation": {
+    "best_approach": "Regex",
+    "val_macro_f1": 0.8558,
+    "selection_metric": "macro_f1",
+    "selection_reason": "Macro F1 averaged across all 4 entity types. F1 chosen over precision because missing an entity (FN) is worse than a false positive — incomplete RL state is harder to recover from than a slightly noisy state.",
+    "gap_note": "Val Macro F1=0.8558  |  Test Macro F1=0.8634  |  Gap=0.0076  (stable)",
+    "annotation": "Hybrid Union Silver Standard: has_entity=1 if Regex OR GLiNER detects entity. Covers structured template issues (Regex) and informal free-text issues (GLiNER).",
+    "rl_readiness": "Entity flags (has_version, has_error_type, has_platform, has_hardware) are now in final_rl_dataset.csv. The RL agent uses these to understand how complete the ticket information is. entity_count=0 → likely needs clarification. entity_count=4 → fully specified → safe to route.",
+    "next_step": "Run entity_extractor.py --mode generate to write flags into CSVs, then proceed to missing_detector.py (Step 8)."
+  },
+  "best": {
+    "best_approach": "Regex",
+    "selection_metric": "macro_f1",
+    "selection_reason": "Macro F1 averaged across all 4 entity types. F1 chosen over precision because missing an entity (FN) is worse than a false positive — incomplete RL state is harder to recover from than a slightly noisy state.",
+    "comparison": [
+      {
+        "approach": "Regex",
+        "macro_f1": 0.8558,
+        "macro_precision": 1.0,
+        "macro_recall": 0.769
+      },
+      {
+        "approach": "spaCy",
+        "macro_f1": 0.8295,
+        "macro_precision": 1.0,
+        "macro_recall": 0.7301
+      },
+      {
+        "approach": "GLiNER",
+        "macro_f1": 0.8494,
+        "macro_precision": 1.0,
+        "macro_recall": 0.7409
+      }
+    ],
+    "entity_types": [
+      "version",
+      "error_type",
+      "platform",
+      "hardware"
+    ],
+    "annotation_strategy": "Hybrid Union Silver Standard: has_entity=1 if Regex OR GLiNER detects entity. Covers structured template issues (Regex) and informal free-text issues (GLiNER)."
+  }
+}

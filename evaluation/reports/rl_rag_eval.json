@@ -1,0 +1,54 @@
+{
+    "similarity_stats": {
+        "mean": 0.7794447183098592,
+        "std": 0.19791965956088373,
+        "min": 0.1658,
+        "max": 1.0
+    },
+    "bucket_analysis": [
+        {
+            "sim_bucket": "low",
+            "avg_success": 0.0,
+            "avg_reopen": 0.0,
+            "count": 10
+        },
+        {
+            "sim_bucket": "mid_low",
+            "avg_success": 0.0,
+            "avg_reopen": 0.0,
+            "count": 59
+        },
+        {
+            "sim_bucket": "mid_high",
+            "avg_success": 0.003952569169960474,
+            "avg_reopen": 0.015810276679841896,
+            "count": 253
+        },
+        {
+            "sim_bucket": "high",
+            "avg_success": 0.569811320754717,
+            "avg_reopen": 0.03962264150943396,
+            "count": 530
+        }
+    ],
+    "gap_analysis": {
+        "gap1_success": 0.0,
+        "gap0_success": 0.408355795148248,
+        "gap1_reopen": 0.0,
+        "gap0_reopen": 0.03369272237196765,
+        "gap_ratio": 0.12910798122065728
+    },
+    "high_conf_analysis": {
+        "hc_success": 0.8422535211267606,
+        "non_hc_success": 0.008048289738430584,
+        "hc_reopen": 0.036619718309859155,
+        "non_hc_reopen": 0.02414486921529175,
+        "hc_ratio": 0.4166666666666667
+    },
+    "intent_match_rate": 0.818075117370892,
+    "correlations": {
+        "sim_vs_success": 0.8032709973012105,
+        "sim_vs_reopen": 0.07814236485016922,
+        "gap_vs_success": -0.2860418195389443
+    }
+}

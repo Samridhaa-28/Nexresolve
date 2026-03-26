@@ -1,0 +1,19 @@
+==================================================
+ NEXRESOLVE SUMMARIZER EVALUATION REPORT
+==================================================
+Generated At: 2026-03-26T09:54:33.097404
+Total Tickets Analyzed: 852
+
+--- Averages & Compression ---
+  Original Length (Chars): 1268.67
+  Summary Length (Chars):  409.68
+  Compression Ratio:       0.3229
+
+--- Quality Control Flags ---
+  Too Short Less Than 10 Chars: 1
+  Empty Summaries:              0
+  Identical Total:              209
+    -> Due to Short Source Text:100
+    -> Algorithm Fallbacks:     109
+
+==================================================

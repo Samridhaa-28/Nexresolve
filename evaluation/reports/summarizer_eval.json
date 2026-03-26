@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-03-26T09:54:33.097404",
+  "total_analyzed": 852,
+  "averages": {
+    "original_length_chars": 1268.67,
+    "summary_length_chars": 409.68,
+    "original_words": 170.01,
+    "summary_words": 53.27,
+    "compression_ratio_chars": 0.3229,
+    "compression_ratio_words": 0.3133
+  },
+  "quality_flags": {
+    "too_short_less_than_10_chars": 1,
+    "identical_total": 209,
+    "identical_due_to_short_text": 100,
+    "identical_algorithm_fallback": 109,
+    "empty_summaries": 0
+  }
+}

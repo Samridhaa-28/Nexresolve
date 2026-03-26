@@ -1,0 +1,31 @@
+==================================================
+ NEXRESOLVE SENTIMENT EVALUATION REPORT
+==================================================
+Generated At: 2026-03-26T09:52:11.082399
+Total Tickets Analyzed: 852
+
+--- Global Averages ---
+  Average Sentiment:   -0.1759
+  Average Frustration: 0.5879
+
+--- Label Distribution ---
+  Negative: 56.34%
+  Positive: 36.38%
+  Neutral: 7.28%
+
+--- Frustration by Urgency ---
+  0: 0.4945
+  1: 0.6694
+
+--- Frustration by Intent ---
+  Billing: 0.3201
+  Bug: 0.7097
+  Build_infra: 0.6956
+  Docs: 0.848
+  Duplicate: 0.4436
+  Enhancement: 0.4541
+  Ml_module: 0.5944
+  Needs_info: 0.6065
+  Other: 0.4538
+
+==================================================

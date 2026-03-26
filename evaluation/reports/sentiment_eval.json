@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-03-26T09:52:11.082399",
+  "total_analyzed": 852,
+  "global_averages": {
+    "average_frustration": 0.5879,
+    "average_sentiment": -0.1759
+  },
+  "label_distribution_pct": {
+    "negative": 56.34,
+    "positive": 36.38,
+    "neutral": 7.28
+  },
+  "frustration_by_urgency": {
+    "0": 0.4945,
+    "1": 0.6694
+  },
+  "frustration_by_intent": {
+    "billing": 0.3201,
+    "bug": 0.7097,
+    "build_infra": 0.6956,
+    "docs": 0.848,
+    "duplicate": 0.4436,
+    "enhancement": 0.4541,
+    "ml_module": 0.5944,
+    "needs_info": 0.6065,
+    "other": 0.4538
+  }
+}

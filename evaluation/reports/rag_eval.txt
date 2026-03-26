@@ -1,0 +1,42 @@
+==============================================================
+  Pipeline complete
+==============================================================
+  Processed      : 852 tickets
+  State dim      : 37 features
+  Elapsed        : 103.7s  (121.7 ms/ticket)
+  NaN in matrix  : 0
+
+  RAG Signal Summary:
+    max_sim                      mean=0.6317  std=0.1587  min=0.0577  max=1.0000
+    avg_sim                      mean=0.5900  std=0.1329  min=0.0577  max=0.9404
+    sim_spread                   mean=0.0692  std=0.0694  min=0.0000  max=0.4230
+    knowledge_gap_flag           mean=0.3932  std=0.4887  min=0.0000  max=1.0000
+
+  Knowledge Gap Breakdown:
+    Gap (flag=1) :  335  (39.3%)
+    No Gap (0)   :  517  (60.7%)
+
+==============================================================
+  Sample state vectors (first 3 tickets):
+==============================================================
+
+  Ticket 303181
+    max_sim                      = 0.5220
+    avg_sim                      = 0.5220
+    sim_spread                   = 0.0000
+    knowledge_gap_flag           = 1.0000
+
+  Ticket 303177
+    max_sim                      = 0.4165
+    avg_sim                      = 0.4165
+    sim_spread                   = 0.0000
+    knowledge_gap_flag           = 1.0000
+
+  Ticket 303167
+    max_sim                      = 0.2445
+    avg_sim                      = 0.2445
+    sim_spread                   = 0.0000
+    knowledge_gap_flag           = 1.0000
+
+  Saved → data/final/rl_ready_dataset.csv
+==============================================================

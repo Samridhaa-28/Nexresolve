@@ -1,0 +1,205 @@
+RAG EXPLANATION — NexResolve
+==============================
+File: evaluation/reports/rag_explanation.txt
+Last Updated: 2026-03-26
+
+==============================================================
+1. WHAT IS RAG DOING IN THIS SYSTEM?
+==============================================================
+
+RAG stands for Retrieval-Augmented Generation. In NexResolve,
+we use the RETRIEVAL part of RAG — not generation via an LLM.
+
+When a new support ticket arrives, instead of the RL agent deciding
+from scratch, we first search a knowledge base of previously RESOLVED
+issues to find the most similar past cases. The similarity signals
+from that search are then passed to the RL agent as additional input.
+
+This gives the RL agent "memory" — it can see whether similar issues
+have been resolved before, and how confidently.
+
+In short:
+  NEW TICKET → search resolved KB → similarity signals → better RL decision
+
+==============================================================
+2. WHAT IS EMBEDDED AND WHY?
+==============================================================
+
+Only the "clean_text" field of each resolved issue is embedded.
+
+clean_text = the normalized, preprocessed ticket body (no code blocks,
+             no noise, lowercase).
+
+We do NOT embed solution_comments. Solutions are kept as METADATA
+and only surfaced AFTER a successful similarity match. This is intentional:
+we want to match on the PROBLEM description, not the solution.
+
+Why not embed titles? Titles alone are often too short and ambiguous.
+clean_text gives richer semantic context for retrieval.
+
+==============================================================
+3. HOW DOES FAISS WORK (CONCEPTUALLY)?
+==============================================================
+
+FAISS (Facebook AI Similarity Search) is a library for fast nearest-
+neighbour search in high-dimensional vector spaces.
+
+In our system:
+  - Each resolved issue is converted to a 384-dimensional vector.
+  - All these vectors are stored in a FAISS index (IndexFlatIP).
+  - When a new ticket arrives, its vector is compared against all KB
+    vectors to find the top-k closest matches.
+
+IndexFlatIP = "Flat Inner Product" index.
+  - "Flat" means it checks every vector (exact, not approximate).
+  - "IP" = Inner Product. When vectors are L2-normalized, inner product
+    equals cosine similarity. So FAISS is doing cosine search.
+
+The index is built ONCE offline and loaded at inference time.
+This makes retrieval very fast (~milliseconds) even for large KBs.
+
+==============================================================
+4. WHY COSINE SIMILARITY?
+==============================================================
+
+Cosine similarity measures the ANGLE between two vectors, not their
+magnitude. This is ideal for text because:
+
+  - Two tickets about the same problem should be semantically close
+    regardless of how long they are.
+  - A short ticket "login broken" and a long ticket "I cannot log in
+    after password reset, error 401..." can still have high cosine
+    similarity if they describe the same issue.
+
+Range: 0.0 (completely different) to 1.0 (identical meaning).
+
+Thresholds used in NexResolve:
+  ≥ 0.75 → strong match (very likely the same class of issue)
+  0.55–0.75 → moderate match (similar but may differ in specifics)
+  < 0.55 → weak match (likely a genuinely new/unseen issue)
+
+==============================================================
+5. WHAT DOES RETRIEVAL OPTIMIZATION DO?
+==============================================================
+
+Raw FAISS retrieval gives the top-k most similar vectors, but these
+raw results may be noisy. Three optimization steps are applied:
+
+  STEP 1 — Intent-Aware Filtering:
+    Remove retrieved issues whose primary_label does not match the
+    predicted intent of the incoming ticket. For example, if a ticket
+    is classified as "billing", we prefer billing-labeled KB issues.
+    Skipped if intent confidence is too low (< 0.50).
+
+  STEP 2 — Jaccard Deduplication:
+    Remove near-duplicate solutions. If two retrieved issues have
+    solution_comments that are 70%+ word-overlap, only the higher-ranked
+    one is kept. This prevents surfacing the same fix rephrased.
+
+  STEP 3 — Similarity Thresholding:
+    Discard results below the minimum similarity threshold (default 0.50).
+    If all results fall below threshold, the top-1 is kept as fallback
+    so the pipeline always has at least one candidate.
+
+==============================================================
+6. WHAT DO SIMILARITY FEATURES MEAN?
+==============================================================
+
+After optimization, three numeric signals are extracted from the
+retrieval scores and passed to the RL state vector:
+
+  max_sim (float, 0–1):
+    The highest similarity score among retrieved results.
+    → "Does at least ONE strong match exist?"
+    → Primary signal of retrieval confidence.
+
+  avg_sim (float, 0–1):
+    The average similarity across all retrieved results.
+    → "Is the overall retrieval quality good?"
+    → High avg_sim = multiple relevant matches, not just one lucky hit.
+
+  sim_spread (float, 0–1):
+    max_sim − min_sim across retrieved results.
+    → Low spread = results are consistently relevant.
+    → High spread = only top-1 is strong; the rest are weaker.
+
+Example:
+  max_sim=0.91, avg_sim=0.88, spread=0.06 → strong, consistent KB match
+  max_sim=0.61, avg_sim=0.42, spread=0.19 → only top-1 is relevant
+  max_sim=0.38, avg_sim=0.34, spread=0.04 → no good match; knowledge gap
+
+==============================================================
+7. WHAT IS THE KNOWLEDGE GAP?
+==============================================================
+
+knowledge_gap_flag is a binary signal (0 or 1):
+
+  1 = NO sufficiently close resolved issue found.
+      The KB cannot ground this ticket with evidence.
+      → RL agent should lean toward CLARIFY or ESCALATE.
+
+  0 = At least one resolved issue with max_sim ≥ 0.55 exists.
+      The KB can provide supporting evidence.
+      → RL agent can lean toward SUGGEST or ROUTE.
+
+The threshold 0.55 was calibrated for all-MiniLM-L6-v2 on this dataset.
+
+This single binary flag encodes a critical decision-making signal:
+"Does the system know how to handle this type of issue?"
+
+==============================================================
+8. HOW DOES RAG IMPROVE DECISION-MAKING?
+==============================================================
+
+Without RAG, the RL agent sees only the NLP features of the current
+ticket — intent, entities, sentiment, urgency, SLA, etc. It has no
+memory of past resolved cases.
+
+With RAG, the RL agent additionally sees:
+  - max_sim     → how confidently the KB can help
+  - avg_sim     → overall retrieval quality
+  - sim_spread  → consistency of the match
+  - gap_flag    → is this a genuinely new/unseen problem?
+
+This enables smarter action selection:
+
+  SCENARIO A — high max_sim + gap_flag=0:
+    KB has strong evidence. Agent should SUGGEST known solution.
+
+  SCENARIO B — moderate max_sim + needs_clarification=1:
+    Partial match but missing info. Agent should CLARIFY first.
+
+  SCENARIO C — gap_flag=1 + high frustration:
+    No KB match, user is frustrated. Agent should ESCALATE immediately.
+
+RAG transforms the RL agent from a pure NLP classifier into a
+knowledge-grounded decision-maker with verifiable evidence.
+
+==============================================================
+9. HOW ARE KNOWLEDGE BASE TIERS USED?
+==============================================================
+
+The knowledge base entries are categorized into quality tiers:
+
+  Tier 1 (tier1_verified):
+    Resolved issues with clear solution comments.
+    These are used to build the FAISS index.
+
+  Tier 2 (tier2_discussed):
+    Issues with partial discussion or unclear resolution.
+    Not included in the index to avoid noisy retrieval.
+
+  Tier 3 (tier3_minimal):
+    Minimal or incomplete issues with no usable solution.
+    Completely excluded from retrieval.
+
+During retrieval, the tier of the top matched issue is extracted
+as "top_tier" and encoded into the RL state as:
+
+  tier1_flag = 1 if top result is Tier 1
+  tier2_flag = 1 if top result is Tier 2
+  (Tier 3 is implicitly represented when both flags are 0)
+
+This provides an additional reliability signal to the RL agent,
+helping it distinguish between strong, verified solutions and
+weaker or uncertain matches.

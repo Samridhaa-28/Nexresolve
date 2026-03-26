@@ -1,0 +1,283 @@
+FINAL STATE VECTOR — NexResolve RL Agent
+==========================================
+File: evaluation/reports/final_state_vector.txt
+Last Updated: 2026-03-26
+
+==============================================================
+OVERVIEW
+==============================================================
+
+This document describes the complete, structured state vector
+that is passed to the RL (Reinforcement Learning) agent in NexResolve.
+
+The state vector is a flat numeric array of 35 features per ticket.
+Each feature is a float32 value.
+
+"This structured state vector is the input to the RL agent."
+
+The vector is produced by: rl/state_builder.py
+The output dataset is:     data/final/rl_ready_dataset.csv
+
+==============================================================
+FEATURE GROUPS
+==============================================================
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 1 — NLP INTENT FEATURES  (4 features)                 │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ intent_group_enc │ int (0–7) │ Predicted intent class.        │
+│                  │           │ 0=duplicate, 1=needs_info,     │
+│                  │           │ 2=bug, 3=billing, 4=feature,   │
+│                  │           │ 5=general, 6=triage, 7=other.  │
+│                  │           │ Primary routing signal.        │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ confidence_score │ float     │ Model confidence in intent.    │
+│                  │           │ Low confidence → prefer        │
+│                  │           │ CLARIFY over ROUTE.            │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ uncertainty_flag │ int (0/1) │ 1 = low confidence detected.   │
+│                  │           │ Hard signal to flag ambiguous  │
+│                  │           │ tickets.                       │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ confidence_band  │ int (0–2) │ 0=low, 1=medium, 2=high.       │
+│    _enc          │           │ Ordinal encoding of confidence │
+│                  │           │ for RL consumption.            │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 2 — TICKET METADATA  (5 features)                      │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ text_length      │ int       │ Character count of ticket.     │
+│                  │           │ Very short → incomplete info.  │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ word_count       │ int       │ Token count of ticket text.    │
+│                  │           │ Proxy for information density. │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ question_mark    │ int (0/1) │ 1 = user asked a question.     │
+│   _flag          │           │ Suggests need for an answer,   │
+│                  │           │ not just acknowledgement.      │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ has_solution     │ int (0/1) │ 1 = ticket already has a       │
+│   _comment       │           │ comment from support. Lower    │
+│                  │           │ priority for new action.       │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ turn_count       │ int       │ Number of conversation turns.  │
+│                  │           │ High = long-running issue,     │
+│                  │           │ may need escalation.           │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 3 — SLA FEATURES  (4 features)                         │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ sla_breach_flag  │ int (0/1) │ 1 = SLA already breached.      │
+│                  │           │ Critical escalation signal.    │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ sla_remaining    │ float     │ Normalized time left before    │
+│   _norm          │ (0–1)     │ breach. Low = act urgently.    │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ sla_limit_hours  │ float     │ Total SLA window (hours).      │
+│                  │           │ Gives absolute scale context.  │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ interaction_depth│ int       │ Nested reply depth.            │
+│                  │           │ Deep threads = complex issue.  │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 4 — ENTITY & COMPLETENESS FEATURES  (8 features)       │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ has_version      │ int (0/1) │ 1 = version number mentioned.  │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ has_error_type   │ int (0/1) │ 1 = specific error mentioned.  │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ has_platform     │ int (0/1) │ 1 = OS/platform mentioned.     │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ has_hardware     │ int (0/1) │ 1 = hardware details included. │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ entity_count     │ int       │ Total entities detected (0–4). │
+│                  │           │ High = ticket is detailed.     │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ missing_count    │ int       │ Number of missing entities.    │
+│                  │           │ High = CLARIFY action needed.  │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ completeness     │ float     │ Fraction of entities present.  │
+│   _score         │ (0–1)     │ 1.0 = all entities provided.   │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ reassignment     │ int       │ Times ticket was reassigned.   │
+│   _count         │           │ High = routing confusion.      │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 5 — URGENCY FEATURES  (2 features)                     │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ urgency_score    │ float     │ Composite urgency (0–1).       │
+│                  │ (0–1)     │ Derived from sentiment, SLA,   │
+│                  │           │ keywords. High = act now.      │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ urgent_flag      │ int (0/1) │ 1 = urgency_score above        │
+│                  │           │ threshold. Hard binary signal. │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 6 — CLARIFICATION FEATURES  (2 features)               │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ needs_           │ int (0/1) │ 1 = NLP decided clarification  │
+│   clarification  │           │ is required before routing.    │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ clarification_   │ int (0–3) │ Priority of clarification.     │
+│   priority       │           │ Higher = more urgent need.     │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 7 — SENTIMENT & FRUSTRATION  (3 features)              │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ sentiment_score  │ float     │ Compound sentiment (-1 to +1). │
+│                  │ (-1 to 1) │ Negative = user upset.         │
+│                  │           │ Should trigger empathy/esc.    │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ sentiment_label  │ int (0–2) │ 0=negative, 1=neutral,         │
+│   _enc           │           │ 2=positive. Ordinal encoded.   │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ frustration_     │ float     │ Composite user frustration      │
+│   level          │ (0–1)     │ index. High → ESCALATE.        │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 8 — BEHAVIORAL / INTERACTION FEATURES  (3 features)    │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ rl_recommendation│ int (0–3) │ NLP-derived action hint.       │
+│   _enc           │           │ 0=clarify, 1=route_or_clarify, │
+│                  │           │ 2=route, 3=escalate.           │
+│                  │           │ Soft prior for RL action.      │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ reopen_count     │ int       │ Times ticket was reopened.     │
+│                  │           │ High = repeated unresolved.    │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ resolution_      │ int (0/1) │ 1 = issue was resolved.        │
+│   success        │           │ Ground truth outcome label.    │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  GROUP 9 — RAG FEATURES  (4 features) ← NEW                   │
+├──────────────────┬───────────┬────────────────────────────────┤
+│ Feature          │ Type      │ Meaning & RL Relevance         │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ max_sim          │ float     │ Highest cosine similarity of   │
+│                  │ (0–1)     │ retrieved KB issue.            │
+│                  │           │ High = strong KB evidence.     │
+│                  │           │ Supports SUGGEST action.       │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ avg_sim          │ float     │ Average similarity across all  │
+│                  │ (0–1)     │ top-k retrieved results.       │
+│                  │           │ Measures retrieval consistency.│
+├──────────────────┼───────────┼────────────────────────────────┤
+│ sim_spread       │ float     │ max_sim − min_sim.             │
+│                  │ (0–1)     │ High = only top-1 is relevant. │
+│                  │           │ Low = all results are strong.  │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ knowledge_gap    │ int (0/1) │ 1 = no adequate KB match.      │
+│   _flag          │           │ (max_sim < 0.55)               │
+│                  │           │ Signals ESCALATE or CLARIFY.   │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ tier1_flag       │ int (0/1) │ 1 = best match is Tier 1       │
+│                  │           │ (Verified/High Quality).       │
+├──────────────────┼───────────┼────────────────────────────────┤
+│ tier2_flag       │ int (0/1) │ 1 = best match is Tier 2       │
+│                  │           │ (Reviewed/Moderate Quality).   │
+└──────────────────┴───────────┴────────────────────────────────┘
+
+==============================================================
+COMPLETE STATE VECTOR — FIXED ORDER (37 features)
+==============================================================
+
+ #   Feature                   Group
+----  ------------------------  -------------------
+ 1   text_length               Ticket Meta
+ 2   word_count                Ticket Meta
+ 3   question_mark_flag        Ticket Meta
+ 4   has_solution_comment      Ticket Meta
+ 5   turn_count                Ticket Meta
+ 6   sla_breach_flag           SLA
+ 7   sla_remaining_norm        SLA
+ 8   sla_limit_hours           SLA
+ 9   interaction_depth         SLA
+10   intent_group_enc          NLP Intent
+11   confidence_score          NLP Intent
+12   uncertainty_flag          NLP Intent
+13   confidence_band_enc       NLP Intent
+14   urgency_score             Urgency
+15   urgent_flag               Urgency
+16   has_version               Entity
+17   has_error_type            Entity
+18   has_platform              Entity
+19   has_hardware              Entity
+20   entity_count              Entity
+21   missing_count             Entity
+22   completeness_score        Entity
+23   reassignment_count        Behavioral
+24   needs_clarification       Clarification
+25   clarification_priority    Clarification
+26   sentiment_score           Sentiment
+27   sentiment_label_enc       Sentiment
+28   frustration_level         Frustration
+29   rl_recommendation_enc     Behavioral
+30   reopen_count              Behavioral
+31   resolution_success        Behavioral
+32   max_sim                   RAG
+33   avg_sim                   RAG
+34   sim_spread                RAG
+35   knowledge_gap_flag        RAG
+36   tier1_flag                RAG 
+37   tier2_flag                RAG 
+
+==============================================================
+HOW THE RL AGENT USES THIS VECTOR
+==============================================================
+
+The RL agent maps each state vector to one of 4 actions:
+
+  Action 0 — ROUTE      : Direct ticket to appropriate team/queue
+  Action 1 — CLARIFY    : Request more information from user
+  Action 2 — SUGGEST    : Surface a known solution from KB
+  Action 3 — ESCALATE   : Move to higher-tier support
+
+Decision examples using combined NLP + RAG signals:
+
+  HIGH max_sim + LOW gap_flag + HIGH confidence_score
+  → Agent has strong KB evidence + clear intent → SUGGEST solution
+
+  LOW max_sim + HIGH gap_flag + HIGH needs_clarification
+  → No KB match + missing info → CLARIFY first
+
+  HIGH frustration_level + sla_breach_flag=1 + HIGH gap_flag
+  → User angry + SLA breached + no KB match → ESCALATE
+
+  LOW uncertainty_flag + known intent + LOW missing_count
+  → Clear intent + complete info + no gap → ROUTE directly
+
+==============================================================
+FILES INVOLVED
+==============================================================
+
+  Source data  : data/final/final_rl_dataset.csv  (NLP features)
+  RAG index    : data/retrieval/kb_index.faiss
+  RAG metadata : data/retrieval/kb_index.meta.json
+  State builder: rl/state_builder.py
+  Output       : data/final/rl_ready_dataset.csv
+
+

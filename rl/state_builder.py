@@ -329,7 +329,7 @@ if __name__ == "__main__":
     "reassignment_count"  : 0,
 
     # ── Clarification ──────────────────────
-    "needs_clarification" : 1,
+    "needs_clarification" : 1 ,
     "clarification_priority": 2,
 
     # ── Sentiment ──────────────────────────

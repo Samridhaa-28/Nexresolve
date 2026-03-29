@@ -1,0 +1,86 @@
+NexResolve - Reward Function Design Specification
+================================================
+
+Philosophy:
+Reward is designed to balance:
+- Fast resolution
+- Correct decision making
+- Customer satisfaction (low frustration)
+- Minimal unnecessary actions
+
+-----------------------------------------------------
+BASE REWARDS
+-----------------------------------------------------
+
+Resolution Success:
++25 (strong terminal reward)
+
+SLA Bonus:
++5 (if resolved before breach)
+
+-----------------------------------------------------
+PENALTIES
+-----------------------------------------------------
+
+Step Penalty:
+-0.2 per step (encourages efficiency without overpowering reward)
+
+Reassignment Penalty:
+-2 (discourages unnecessary routing)
+
+SLA Breach:
+-10 (critical failure)
+
+Frustration Increase:
+-2 × Δ(frustration)
+(dynamically penalizes poor user experience)
+
+-----------------------------------------------------
+STRATEGY-SPECIFIC SIGNALS
+-----------------------------------------------------
+
+CLARIFY:
+- -1.5 if clarification not needed
+
+SUGGEST:
+- +3 if leads to resolution
+- +2 bonus for Tier1 cases
+- -0.5 penalty for Tier2 cases
+- -1.5 if suggestion fails
+- -1.5 if similarity < 0.4 (bad suggestion context)
+
+ESCALATE:
+- -5 if done prematurely (low frustration)
+
+-----------------------------------------------------
+REWARD CHARACTERISTICS
+-----------------------------------------------------
+
+- Success trajectories produce significantly higher reward than failures
+- Failures accumulate penalties over multiple steps
+- Reward distribution:
+    • Successful cases: higher (less negative or positive)
+    • Failed cases: strongly negative
+
+-----------------------------------------------------
+CLIPPING
+-----------------------------------------------------
+
+Rewards are clipped to:
+[-15, 40]
+
+This ensures:
+- Stability during DQN training
+- Preservation of strong success signal
+
+-----------------------------------------------------
+VALIDATION (EMPIRICAL)
+-----------------------------------------------------
+
+From replay buffer analysis:
+
+- Success reward >> Failure reward
+- Suggest actions dominate successful trajectories
+- Clear separation exists for learning
+
+This confirms reward is suitable for DQN.

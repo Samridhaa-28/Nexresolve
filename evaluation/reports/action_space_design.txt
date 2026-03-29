@@ -1,0 +1,51 @@
+NexResolve - Action Space Design Specification
+=============================================
+
+Hierarchy: 2 Levels
+Total Actions: 17
+Strategies: 4
+
+Level 1: Strategies
+-------------------
+0: ROUTE
+1: CLARIFY
+2: SUGGEST
+3: ESCALATE
+
+Level 2: Specific Actions
+-------------------------
+
+Strategy: ROUTE
+- route_bug
+- route_ml_module
+- route_build_infra
+- route_docs
+- route_billing
+- route_product
+
+Strategy: CLARIFY
+- ask_uncertainty
+- ask_error_type
+- ask_version
+- ask_platform
+- ask_hardware
+- ask_vague_request
+
+Strategy: SUGGEST (RAG-based)
+- suggest_top1
+- suggest_top2
+- suggest_top3
+- suggest_high_conf_only
+
+Strategy: ESCALATE
+- escalate_human
+
+Encoding:
+- Actions are encoded as integers from 0 to 16.
+- Mappings are defined in rl/action_space.py (ACTION_TO_INDEX, INDEX_TO_ACTION).
+- Strategy grouping is fixed and used for masking and policy learning.
+
+RL Notes:
+- All actions are reachable (no dead actions observed in replay buffer).
+- Masking ensures only contextually valid actions are available.
+- Supports hierarchical reasoning (strategy → specific action).

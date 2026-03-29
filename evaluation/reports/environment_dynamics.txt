@@ -1,0 +1,88 @@
+NexResolve - Environment Dynamics (MDP) Specification
+=====================================================
+
+The environment is modeled as a semi-deterministic Markov Decision Process (MDP)
+with rule-based transitions and data-driven signals.
+
+Episode Definition:
+- Start: Random ticket sampled from rl_ready_dataset.csv.
+- End conditions:
+  • Resolution success (resolution_success = 1)
+  • SLA breach
+  • ESCALATE action
+  • Max interaction depth reached (~6 steps)
+
+-----------------------------------------------------
+STATE TRANSITIONS
+-----------------------------------------------------
+
+1. CLARIFY (ask_X)
+------------------
+- Reduces uncertainty and improves completeness
+- May reduce knowledge gap indirectly
+- Slight frustration increase (+0.03 to +0.05)
+- Slight sentiment decrease
+- May increase similarity (better retrieval after clarification)
+
+2. ROUTE (route_X)
+------------------
+- Increases reassignment_count
+- Slight SLA degradation
+- No direct resolution effect
+- Used for task delegation across teams
+
+3. SUGGEST (suggest_X)
+----------------------
+Decision depends on retrieval confidence:
+
+- If max_sim >= 0.6:
+    → High probability of resolution_success = 1
+    → Episode may terminate
+
+- If max_sim < 0.6:
+    → No resolution
+    → Frustration increases (+0.1 to +0.2)
+    → Possible reopen_count increase
+
+- Tier influence:
+    • Tier1: higher success probability
+    • Tier2: lower success reliability
+
+4. ESCALATE
+-----------
+- Immediate episode termination
+- Used when system confidence is low or user frustration is high
+
+-----------------------------------------------------
+GLOBAL DYNAMICS
+-----------------------------------------------------
+
+- Turn count increases every step
+- Interaction depth increases
+- SLA remaining decreases gradually per step
+- Frustration accumulates based on poor actions
+- Knowledge gap remains unless resolved via clarify
+
+-----------------------------------------------------
+STOCHASTICITY
+-----------------------------------------------------
+
+- Environment includes controlled randomness:
+  • Suggest success is probabilistic (based on similarity + tier)
+  • Clarify may improve state variably
+
+This improves generalization and prevents overfitting during DQN training.
+
+-----------------------------------------------------
+DESIGN GOAL
+-----------------------------------------------------
+
+- Encourage:
+  • High-confidence suggestions
+  • Minimal interaction steps
+  • Correct routing decisions
+
+- Discourage:
+  • Unnecessary clarification
+  • Premature escalation
+  • Low-confidence suggestions

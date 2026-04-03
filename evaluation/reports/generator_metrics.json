@@ -1,0 +1,16 @@
+{
+  "FLAN": {
+    "avg_rougeL": 0.08471455074280787,
+    "avg_bert_score": 0.8211356371641159,
+    "avg_structure": 0.26,
+    "avg_grounding": 0.0,
+    "composite": 0.3886167293023079
+  },
+  "BART": {
+    "avg_rougeL": 0.0022875566620109045,
+    "avg_bert_score": 0.8097960925102234,
+    "avg_structure": 0.0,
+    "avg_grounding": 0.0,
+    "composite": 0.2706945497240781
+  }
+}

@@ -1,0 +1,44 @@
+NexResolve Generator Evaluation Report
+Overview
+This report summarizes the evaluation of two response generation models:
+FLAN-T5 and BART, tested on 100 samples from the NexResolve dataset.
+
+Evaluation Metrics
+The following metrics were used:
+ROUGE-L (text overlap quality)
+BERTScore (semantic similarity)
+Structure Score (step-based formatting)
+Grounding Score (solution alignment)
+Composite Score (overall performance)
+
+Results
+FLAN-T5:
+
+Average ROUGE-L Score : 0.0847
+Average BERTScore (F1) : 0.8211
+Average Structure Score : 0.26
+Average Grounding Score : 0.0
+Composite Score : 0.3886
+
+BART:
+
+Average ROUGE-L Score : 0.0023
+Average BERTScore (F1) : 0.8098
+Average Structure Score : 0.0
+Average Grounding Score : 0.0
+Composite Score : 0.2707
+
+Analysis
+FLAN-T5 significantly outperforms BART in ROUGE-L, indicating better lexical alignment with reference solutions.
+BERTScore shows both models are semantically reasonable, but FLAN still leads.
+Structure Score highlights a major difference: FLAN generates structured step-by-step responses, while BART fails to do so.
+Grounding score is 0.0 for both models, suggesting that strict grounding metrics may need refinement.
+
+Conclusion
+FLAN-T5 is the superior model across all major evaluation metrics, especially in response structure and overall quality.
+
+Final Decision:
+Selected Generator Model: FLAN-T5
+
+
+

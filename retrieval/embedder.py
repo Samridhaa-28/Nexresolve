@@ -17,7 +17,7 @@ def get_model() -> SentenceTransformer:
     global _model
     if _model is None:
         print(f"[Embedder] Loading model: {MODEL_NAME} …")
-        _model = SentenceTransformer(MODEL_NAME)
+        _model = SentenceTransformer(MODEL_NAME,device="cpu")
         print("[Embedder] Model loaded successfully.")
     return _model
 
@@ -31,7 +31,8 @@ def generate_embeddings(
     batch_size: int = 64,
     show_progress: bool = False,
 ) -> np.ndarray:
-   
+    import torch
+    torch.cuda.empty_cache()
     model = get_model()
 
     # Encode – sentence-transformers returns a float32 numpy array

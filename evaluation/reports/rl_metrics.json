@@ -1,0 +1,58 @@
+[
+  {
+    "agent": "DQN",
+    "avg_reward": 25.00344749811292,
+    "success_rate": 0.825,
+    "avg_steps": 1.765,
+    "sla_breach_rate": 0.065,
+    "avg_frustration_delta": 0.07002625052817166,
+    "strategy_distribution": {
+      "ROUTE": 0.11048158640226628,
+      "CLARIFY": 0.1529745042492918,
+      "SUGGEST": 0.7308781869688386,
+      "ESCALATE": 0.0056657223796034
+    }
+  },
+  {
+    "agent": "Random",
+    "avg_reward": 15.452007998108865,
+    "success_rate": 0.65,
+    "avg_steps": 2.32,
+    "sla_breach_rate": 0.065,
+    "avg_frustration_delta": 0.021746001653373242,
+    "strategy_distribution": {
+      "ROUTE": 0.5905172413793104,
+      "CLARIFY": 0.10775862068965517,
+      "SUGGEST": 0.25,
+      "ESCALATE": 0.05172413793103448
+    }
+  },
+  {
+    "agent": "Rule-Based",
+    "avg_reward": 24.873499999180435,
+    "success_rate": 0.815,
+    "avg_steps": 1.38,
+    "sla_breach_rate": 0.065,
+    "avg_frustration_delta": 0.0025000005401670934,
+    "strategy_distribution": {
+      "ROUTE": 0.286231884057971,
+      "CLARIFY": 0.036231884057971016,
+      "SUGGEST": 0.5579710144927537,
+      "ESCALATE": 0.11956521739130435
+    }
+  },
+  {
+    "agent": "Bandit",
+    "avg_reward": 22.428945502072576,
+    "success_rate": 0.755,
+    "avg_steps": 1.59,
+    "sla_breach_rate": 0.065,
+    "avg_frustration_delta": 0.08377724976278841,
+    "strategy_distribution": {
+      "ROUTE": 0.031446540880503145,
+      "CLARIFY": 0.03773584905660377,
+      "SUGGEST": 0.8364779874213837,
+      "ESCALATE": 0.09433962264150944
+    }
+  }
+]

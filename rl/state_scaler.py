@@ -35,9 +35,10 @@ def normalize_replay_buffer(
         pickle.dump(buffer_norm, f)
 
     # Save scaler
-    joblib.dump(scaler, scaler_path)
+    with open(scaler_path, "wb") as f:
+     pickle.dump(scaler, f)
 
-    print("✅ Replay buffer normalized and saved")
+    print("Replay buffer normalized and saved")
     print(f"→ {output_path}")
     print(f"→ {scaler_path}")
 

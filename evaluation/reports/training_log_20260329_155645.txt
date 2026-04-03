@@ -1,0 +1,44 @@
+Starting RL Training for NexResolve
+State scaler loaded
+L1 and L2 Agents initialized
+Preloaded 147 transitions into buffer
+Loading faiss with AVX2 support.
+Successfully loaded faiss with AVX2 support.
+Ep   50 | Reward:   9.01 | Steps: 1.4 | Success:  66.0% | L1 Loss: 0.000 | L2 Loss: 0.000 | ROUTE: 36.8% CLARIFY: 11.8% SUGGEST: 29.4% ESCALATE: 22.1% 
+New best model saved (Reward: 9.01)
+Ep  100 | Reward:   5.37 | Steps: 1.6 | Success:  50.0% | L1 Loss: 0.000 | L2 Loss: 0.000 | ROUTE: 40.2% CLARIFY: 15.9% SUGGEST: 20.7% ESCALATE: 23.2% 
+Ep  150 | Reward:  10.76 | Steps: 1.2 | Success:  80.0% | L1 Loss: 0.000 | L2 Loss: 0.000 | ROUTE: 37.1% CLARIFY: 6.5% SUGGEST: 38.7% ESCALATE: 17.7% 
+New best model saved (Reward: 10.76)
+Ep  200 | Reward:   6.27 | Steps: 1.3 | Success:  62.0% | L1 Loss: 0.000 | L2 Loss: 0.000 | ROUTE: 44.4% CLARIFY: 4.8% SUGGEST: 25.4% ESCALATE: 25.4% 
+Ep  250 | Reward:   7.53 | Steps: 1.3 | Success:  56.0% | L1 Loss: 0.000 | L2 Loss: 0.000 | ROUTE: 34.4% CLARIFY: 4.7% SUGGEST: 32.8% ESCALATE: 28.1% 
+Ep  300 | Reward:  13.77 | Steps: 1.2 | Success:  68.0% | L1 Loss: 322.555 | L2 Loss: 220.748 | ROUTE: 37.9% CLARIFY: 1.7% SUGGEST: 44.8% ESCALATE: 15.5% 
+New best model saved (Reward: 13.77)
+Ep  350 | Reward:  13.56 | Steps: 1.3 | Success:  82.0% | L1 Loss: 236.315 | L2 Loss: 168.604 | ROUTE: 26.2% CLARIFY: 6.2% SUGGEST: 40.0% ESCALATE: 27.7% 
+Ep  400 | Reward:   9.30 | Steps: 1.2 | Success:  72.0% | L1 Loss: 118.412 | L2 Loss: 90.198 | ROUTE: 32.3% CLARIFY: 3.2% SUGGEST: 41.9% ESCALATE: 22.6% 
+Ep  450 | Reward:  10.97 | Steps: 1.5 | Success:  74.0% | L1 Loss: 69.572 | L2 Loss: 62.888 | ROUTE: 32.0% CLARIFY: 8.0% SUGGEST: 38.7% ESCALATE: 21.3% 
+Ep  500 | Reward:  15.27 | Steps: 1.4 | Success:  84.0% | L1 Loss: 85.136 | L2 Loss: 34.744 | ROUTE: 36.2% CLARIFY: 5.8% SUGGEST: 50.7% ESCALATE: 7.2% 
+New best model saved (Reward: 15.27)
+Ep  550 | Reward:  10.28 | Steps: 1.6 | Success:  66.0% | L1 Loss: 49.926 | L2 Loss: 20.601 | ROUTE: 36.7% CLARIFY: 6.3% SUGGEST: 44.3% ESCALATE: 12.7% 
+Ep  600 | Reward:  13.82 | Steps: 1.4 | Success:  82.0% | L1 Loss: 38.987 | L2 Loss: 11.347 | ROUTE: 31.4% CLARIFY: 7.1% SUGGEST: 44.3% ESCALATE: 17.1% 
+Ep  650 | Reward:  14.13 | Steps: 1.5 | Success:  76.0% | L1 Loss: 39.000 | L2 Loss: 10.242 | ROUTE: 36.5% CLARIFY: 8.1% SUGGEST: 41.9% ESCALATE: 13.5% 
+Ep  700 | Reward:   8.14 | Steps: 1.3 | Success:  54.0% | L1 Loss: 32.212 | L2 Loss: 6.623 | ROUTE: 47.0% CLARIFY: 1.5% SUGGEST: 25.8% ESCALATE: 25.8% 
+Ep  750 | Reward:  10.33 | Steps: 1.5 | Success:  68.0% | L1 Loss: 31.774 | L2 Loss: 6.681 | ROUTE: 42.5% CLARIFY: 9.6% SUGGEST: 26.0% ESCALATE: 21.9% 
+Ep  800 | Reward:  11.68 | Steps: 1.2 | Success:  80.0% | L1 Loss: 31.602 | L2 Loss: 6.151 | ROUTE: 28.8% CLARIFY: 0.0% SUGGEST: 44.1% ESCALATE: 27.1% 
+Ep  850 | Reward:  15.47 | Steps: 1.3 | Success:  78.0% | L1 Loss: 27.060 | L2 Loss: 5.353 | ROUTE: 31.8% CLARIFY: 3.0% SUGGEST: 51.5% ESCALATE: 13.6% 
+New best model saved (Reward: 15.47)
+Ep  900 | Reward:  11.80 | Steps: 1.3 | Success:  70.0% | L1 Loss: 24.977 | L2 Loss: 5.248 | ROUTE: 20.3% CLARIFY: 17.2% SUGGEST: 43.8% ESCALATE: 18.8% 
+Ep  950 | Reward:  15.20 | Steps: 1.6 | Success:  74.0% | L1 Loss: 24.368 | L2 Loss: 4.597 | ROUTE: 30.5% CLARIFY: 8.5% SUGGEST: 42.7% ESCALATE: 18.3% 
+Ep 1000 | Reward:  11.03 | Steps: 1.4 | Success:  66.0% | L1 Loss: 21.585 | L2 Loss: 4.741 | ROUTE: 32.4% CLARIFY: 5.9% SUGGEST: 39.7% ESCALATE: 22.1% 
+Ep 1050 | Reward:   9.75 | Steps: 1.2 | Success:  68.0% | L1 Loss: 21.788 | L2 Loss: 5.692 | ROUTE: 22.4% CLARIFY: 3.4% SUGGEST: 46.6% ESCALATE: 27.6% 
+Ep 1100 | Reward:  13.58 | Steps: 1.4 | Success:  72.0% | L1 Loss: 24.939 | L2 Loss: 5.741 | ROUTE: 34.3% CLARIFY: 10.0% SUGGEST: 45.7% ESCALATE: 10.0% 
+Ep 1150 | Reward:  12.71 | Steps: 1.2 | Success:  76.0% | L1 Loss: 24.849 | L2 Loss: 5.307 | ROUTE: 23.0% CLARIFY: 1.6% SUGGEST: 59.0% ESCALATE: 16.4% 
+Ep 1200 | Reward:  13.28 | Steps: 1.1 | Success:  70.0% | L1 Loss: 23.635 | L2 Loss: 5.404 | ROUTE: 21.4% CLARIFY: 1.8% SUGGEST: 51.8% ESCALATE: 25.0% 
+Ep 1250 | Reward:  14.25 | Steps: 1.1 | Success:  82.0% | L1 Loss: 20.756 | L2 Loss: 4.685 | ROUTE: 22.8% CLARIFY: 1.8% SUGGEST: 57.9% ESCALATE: 17.5% 
+Ep 1300 | Reward:  11.19 | Steps: 1.1 | Success:  60.0% | L1 Loss: 19.025 | L2 Loss: 5.660 | ROUTE: 25.5% CLARIFY: 1.8% SUGGEST: 45.5% ESCALATE: 27.3% 
+Ep 1350 | Reward:  16.38 | Steps: 1.3 | Success:  80.0% | L1 Loss: 21.235 | L2 Loss: 4.974 | ROUTE: 21.9% CLARIFY: 1.6% SUGGEST: 59.4% ESCALATE: 17.2% 
+New best model saved (Reward: 16.38)
+Ep 1400 | Reward:  19.78 | Steps: 1.3 | Success:  84.0% | L1 Loss: 20.651 | L2 Loss: 4.530 | ROUTE: 15.6% CLARIFY: 6.2% SUGGEST: 65.6% ESCALATE: 12.5% 
+New best model saved (Reward: 19.78)
+Ep 1450 | Reward:  15.22 | Steps: 1.4 | Success:  68.0% | L1 Loss: 19.727 | L2 Loss: 5.766 | ROUTE: 33.3% CLARIFY: 7.2% SUGGEST: 49.3% ESCALATE: 10.1% 
+Ep 1500 | Reward:  17.82 | Steps: 1.2 | Success:  84.0% | L1 Loss: 19.973 | L2 Loss: 4.841 | ROUTE: 24.6% CLARIFY: 3.3% SUGGEST: 59.0% ESCALATE: 13.1% 
+Training complete. Models saved to models/rl/

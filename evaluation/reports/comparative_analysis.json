@@ -1,0 +1,104 @@
+{
+  "ranked_agents": [
+    {
+      "agent": "DQN",
+      "success_rate": 0.825,
+      "avg_reward": 25.00344749811292,
+      "avg_steps": 1.765,
+      "sla_breach_rate": 0.065,
+      "frustration_delta": 0.07002625052817166,
+      "strategy_distribution": {
+        "ROUTE": 0.11048158640226628,
+        "CLARIFY": 0.1529745042492918,
+        "SUGGEST": 0.7308781869688386,
+        "ESCALATE": 0.0056657223796034
+      }
+    },
+    {
+      "agent": "Rule-Based",
+      "success_rate": 0.815,
+      "avg_reward": 24.873499999180435,
+      "avg_steps": 1.38,
+      "sla_breach_rate": 0.065,
+      "frustration_delta": 0.0025000005401670934,
+      "strategy_distribution": {
+        "ROUTE": 0.286231884057971,
+        "CLARIFY": 0.036231884057971016,
+        "SUGGEST": 0.5579710144927537,
+        "ESCALATE": 0.11956521739130435
+      }
+    },
+    {
+      "agent": "Bandit",
+      "success_rate": 0.755,
+      "avg_reward": 22.428945502072576,
+      "avg_steps": 1.59,
+      "sla_breach_rate": 0.065,
+      "frustration_delta": 0.08377724976278841,
+      "strategy_distribution": {
+        "ROUTE": 0.031446540880503145,
+        "CLARIFY": 0.03773584905660377,
+        "SUGGEST": 0.8364779874213837,
+        "ESCALATE": 0.09433962264150944
+      }
+    },
+    {
+      "agent": "RetrievalOnly",
+      "success_rate": 0.72,
+      "avg_reward": 20.178248001217845,
+      "avg_steps": 1.93,
+      "sla_breach_rate": 0.065,
+      "frustration_delta": 0.10787599858827888,
+      "strategy_distribution": {
+        "ROUTE": 0.17616580310880828,
+        "CLARIFY": 0.0,
+        "SUGGEST": 0.8238341968911918,
+        "ESCALATE": 0.0
+      }
+    },
+    {
+      "agent": "Random",
+      "success_rate": 0.65,
+      "avg_reward": 15.452007998108865,
+      "avg_steps": 2.32,
+      "sla_breach_rate": 0.065,
+      "frustration_delta": 0.021746001653373242,
+      "strategy_distribution": {
+        "ROUTE": 0.5905172413793104,
+        "CLARIFY": 0.10775862068965517,
+        "SUGGEST": 0.25,
+        "ESCALATE": 0.05172413793103448
+      }
+    }
+  ],
+  "improvements_over_baselines": {
+    "Random": {
+      "success_rate": 26.92,
+      "avg_reward": 61.81,
+      "avg_steps": -23.92,
+      "sla_breach_rate": 0.0,
+      "frustration_delta": 222.02
+    },
+    "Rule-Based": {
+      "success_rate": 1.23,
+      "avg_reward": 0.52,
+      "avg_steps": 27.9,
+      "sla_breach_rate": 0.0,
+      "frustration_delta": 2701.05
+    },
+    "Bandit": {
+      "success_rate": 9.27,
+      "avg_reward": 11.48,
+      "avg_steps": 11.01,
+      "sla_breach_rate": 0.0,
+      "frustration_delta": -16.41
+    },
+    "RetrievalOnly": {
+      "success_rate": 14.58,
+      "avg_reward": 23.91,
+      "avg_steps": -8.55,
+      "sla_breach_rate": 0.0,
+      "frustration_delta": -35.09
+    }
+  }
+}

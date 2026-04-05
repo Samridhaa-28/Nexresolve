@@ -54,5 +54,19 @@
       "SUGGEST": 0.8364779874213837,
       "ESCALATE": 0.09433962264150944
     }
+  },
+  {
+    "agent": "RetrievalOnly",
+    "avg_reward": 20.178248001217845,
+    "success_rate": 0.72,
+    "avg_steps": 1.93,
+    "sla_breach_rate": 0.065,
+    "avg_frustration_delta": 0.10787599858827888,
+    "strategy_distribution": {
+      "ROUTE": 0.17616580310880828,
+      "CLARIFY": 0.0,
+      "SUGGEST": 0.8238341968911918,
+      "ESCALATE": 0.0
+    }
   }
 ]

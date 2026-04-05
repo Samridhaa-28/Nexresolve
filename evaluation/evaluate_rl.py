@@ -17,6 +17,7 @@ from rl.level2_dqn import Level2Agent
 from rl.action_masking import get_action_mask
 from rl.action_space import INDEX_TO_ACTION, Strategy
 from evaluation.baseline_agents import RandomAgent, RuleBasedAgent, BanditAgent
+from evaluation.baselines import RetrievalOnlyAgent
 
 # Configuration
 SEED = 42
@@ -178,6 +179,7 @@ def main():
     random_agent = RandomAgent()
     rule_agent = RuleBasedAgent()
     bandit_agent = BanditAgent(context_dim=state_dim)
+    retrieval_agent = RetrievalOnlyAgent()
     
     # Warm-start Bandit on 100 episodes before evaluation
     print("Warm-starting Bandit agent ...")
@@ -197,7 +199,8 @@ def main():
         "DQN": dqn_agents,
         "Random": random_agent,
         "Rule-Based": rule_agent,
-        "Bandit": bandit_agent
+        "Bandit": bandit_agent,
+        "RetrievalOnly": retrieval_agent,
     }
     
     all_summaries = []

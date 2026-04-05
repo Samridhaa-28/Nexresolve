@@ -1,0 +1,81 @@
+==================================================
+=== AGENT COMPARISON ===
+==================================================
+
+DQN:
+  Success Rate:      82.5%
+  Avg Reward:        25.0034
+  Avg Steps:         1.7650
+  SLA Breach Rate:   6.5%
+  Frustration Delta: 0.070026
+  Strategy Mix:      ROUTE: 11.0%  |  CLARIFY: 15.3%  |  SUGGEST: 73.1%  |  ESCALATE: 0.6%
+
+Rule-Based:
+  Success Rate:      81.5%
+  Avg Reward:        24.8735
+  Avg Steps:         1.3800
+  SLA Breach Rate:   6.5%
+  Frustration Delta: 0.002500
+  Strategy Mix:      ROUTE: 28.6%  |  CLARIFY: 3.6%  |  SUGGEST: 55.8%  |  ESCALATE: 12.0%
+
+Bandit:
+  Success Rate:      75.5%
+  Avg Reward:        22.4289
+  Avg Steps:         1.5900
+  SLA Breach Rate:   6.5%
+  Frustration Delta: 0.083777
+  Strategy Mix:      ROUTE: 3.1%  |  CLARIFY: 3.8%  |  SUGGEST: 83.6%  |  ESCALATE: 9.4%
+
+RetrievalOnly:
+  Success Rate:      72.0%
+  Avg Reward:        20.1782
+  Avg Steps:         1.9300
+  SLA Breach Rate:   6.5%
+  Frustration Delta: 0.107876
+  Strategy Mix:      ROUTE: 17.6%  |  CLARIFY: 0.0%  |  SUGGEST: 82.4%  |  ESCALATE: 0.0%
+
+Random:
+  Success Rate:      65.0%
+  Avg Reward:        15.4520
+  Avg Steps:         2.3200
+  SLA Breach Rate:   6.5%
+  Frustration Delta: 0.021746
+  Strategy Mix:      ROUTE: 59.1%  |  CLARIFY: 10.8%  |  SUGGEST: 25.0%  |  ESCALATE: 5.2%
+
+==================================================
+=== IMPROVEMENTS (DQN vs Baselines) ===
+==================================================
+
+DQN vs Random:
+  Success Rate:    +26.9%
+  Avg Reward:      +61.8%
+  Avg Steps:       -23.9%
+
+DQN vs Rule-Based:
+  Success Rate:    +1.2%
+  Avg Reward:      +0.5%
+  Avg Steps:       +27.9%
+
+DQN vs Bandit:
+  Success Rate:    +9.3%
+  Avg Reward:      +11.5%
+  Avg Steps:       +11.0%
+
+DQN vs RetrievalOnly:
+  Success Rate:    +14.6%
+  Avg Reward:      +23.9%
+  Avg Steps:       -8.6%
+
+==================================================
+=== CONCLUSION ===
+==================================================
+
+DQN achieves the highest success rate of 82.5%, outperforming all baselines.
+
+Key takeaways:
+  - DQN (learning-based): Learns optimal action selection from experience, adapting to ticket context beyond fixed rules.
+  - Rule-Based (heuristic): Strong deterministic rules yield competitive performance but lack adaptability to edge cases.
+  - RetrievalOnly (retrieval-based): Relies solely on similarity scores; effective when knowledge base coverage is high, but brittle otherwise.
+  - Random: No strategy — serves as the lower-bound reference.
+
+RL adds measurable value: the DQN agent learns when to suggest, clarify, or route based on the full state context, not just a single heuristic signal.

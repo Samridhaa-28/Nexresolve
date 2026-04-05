@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animated gradient background used on Login, Register, NewTicket pages */
+.gradient-bg {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1b2a 40%, #0a0f1e 70%, #060d16 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

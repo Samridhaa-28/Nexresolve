@@ -270,3 +270,136 @@ if __name__ == "__main__":
         print(f"  Rank {r['rank']} | sim={r['similarity_score']:.4f} | "
               f"label={r['primary_label']} | #{r['issue_number']}")
         print(f"    ↳ {r['solution_comments'][:100]}…")
+
+
+# ---------------------------------------------------------------------------
+# Combined NLP pipeline — used by the FastAPI backend (api/pipeline.py)
+# ---------------------------------------------------------------------------
+
+def run_nlp_pipeline(ticket_text: str) -> dict:
+    """
+    Run the full NLP stack for a single raw ticket string.
+
+    Calls: intent_classifier → entity_extractor → missing_detector →
+           urgency_predictor → sentiment_analyzer → clarification_modeler
+
+    Returns a flat dict consumed by build_single_state().
+    All numeric values are Python-native (not numpy) for JSON safety.
+    No exceptions propagate — each module falls back to safe defaults.
+    """
+    # Local imports to avoid circular dependencies and delay heavy loading
+    import nlp.intent_classifier    as _intent
+    import nlp.entity_extractor     as _entity
+    import nlp.missing_detector     as _missing
+    import nlp.urgency_predictor    as _urgency
+    import nlp.clarification_modeler as _clarify
+    from nlp.sentiment_analyzer import SentimentAnalyzer
+
+    text = (ticket_text or "").strip()
+
+    # ── 1. Intent classification ──────────────────────────────────────────────
+    try:
+        ir = _intent.predict(text)
+        intent_group     = str(ir.get("intent_group", "other"))
+        confidence_score = float(ir.get("confidence_score", 0.5))
+        uncertainty_flag = int(ir.get("uncertainty_flag", 0))
+    except Exception:
+        intent_group, confidence_score, uncertainty_flag = "other", 0.5, 0
+
+    # Confidence band (deterministic, matches CONFIDENCE_BAND_MAP in state_builder)
+    if confidence_score < 0.4:
+        confidence_band = "low"
+    elif confidence_score < 0.7:
+        confidence_band = "medium"
+    else:
+        confidence_band = "high"
+
+    # ── 2. Entity extraction ──────────────────────────────────────────────────
+    try:
+        er    = _entity.predict(text)
+        flags = er.get("flags", {})
+        has_version    = int(flags.get("has_version",    0))
+        has_error_type = int(flags.get("has_error_type", 0))
+        has_platform   = int(flags.get("has_platform",   0))
+        has_hardware   = int(flags.get("has_hardware",   0))
+        entity_count   = int(flags.get("entity_count",   0))
+    except Exception:
+        has_version = has_error_type = has_platform = has_hardware = entity_count = 0
+
+    # ── 3. Missing field detection ────────────────────────────────────────────
+    try:
+        mr = _missing.predict(
+            intent_group  = intent_group,
+            has_version   = has_version,
+            has_error_type= has_error_type,
+            has_platform  = has_platform,
+            has_hardware  = has_hardware,
+        )
+        missing_fields    = mr.get("missing_fields", [])
+        missing_count     = int(len(missing_fields))
+        completeness_score = float(1.0 - missing_count / 4.0)
+    except Exception:
+        missing_count, completeness_score = 0, 1.0
+
+    # ── 4. Urgency prediction ─────────────────────────────────────────────────
+    try:
+        ur = _urgency.predict(text)
+        urgency_score = float(ur.get("urgency_score", 0.0))
+        urgent_flag   = int(ur.get("urgent_flag",   0))
+    except Exception:
+        urgency_score, urgent_flag = 0.0, 0
+
+    # ── 5. Sentiment analysis ─────────────────────────────────────────────────
+    try:
+        sa = SentimentAnalyzer(model="vader")
+        sentiment_score = float(sa.analyze_text(text))
+        sentiment_label = sa.get_label(sentiment_score)
+    except Exception:
+        sentiment_score, sentiment_label = 0.0, "neutral"
+
+    # Frustration level: derived from negative sentiment (0–1 range)
+    frustration_level = float(max(0.0, -sentiment_score))
+
+    # ── 6. Clarification modeling ─────────────────────────────────────────────
+    try:
+        cr = _clarify.predict(
+            intent_group     = intent_group,
+            uncertainty_flag = uncertainty_flag,
+            missing_version  = 1 - has_version,
+            missing_error    = 1 - has_error_type,
+            missing_platform = 1 - has_platform,
+            missing_hardware = 1 - has_hardware,
+            word_count       = len(text.split()),
+        )
+        needs_clarification    = int(cr.get("needs_clarification",    0))
+        clarification_priority = float(cr.get("clarification_priority", 0.0))
+    except Exception:
+        needs_clarification, clarification_priority = 0, 0.0
+
+    # ── Assemble flat result dict ─────────────────────────────────────────────
+    return {
+        # Intent
+        "intent_group":            intent_group,
+        "confidence_score":        confidence_score,
+        "uncertainty_flag":        uncertainty_flag,
+        "confidence_band":         confidence_band,
+        # Entity
+        "has_version":             has_version,
+        "has_error_type":          has_error_type,
+        "has_platform":            has_platform,
+        "has_hardware":            has_hardware,
+        "entity_count":            entity_count,
+        # Missing
+        "missing_count":           missing_count,
+        "completeness_score":      completeness_score,
+        # Urgency
+        "urgency_score":           urgency_score,
+        "urgent_flag":             urgent_flag,
+        # Sentiment
+        "sentiment_score":         sentiment_score,
+        "sentiment_label":         sentiment_label,
+        "frustration_level":       frustration_level,
+        # Clarification
+        "needs_clarification":     needs_clarification,
+        "clarification_priority":  clarification_priority,
+    }

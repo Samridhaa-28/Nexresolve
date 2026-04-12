@@ -266,6 +266,7 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
         })
 
     top_solution = pick_best_rag_result(rag_results)
+    #combined_solution = get_combined_solution(rag_results)
 
     # ── 3. State row ──────────────────────────────────────────────────────────
     # SLA remaining decreases by _SLA_DECREASE_PER_TURN for each clarification turn
@@ -303,6 +304,8 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
 
     frustration_level = float(nlp_result.get("frustration_level", 0.0))
     intent            = (nlp_result.get("intent_group") or "other").lower()
+    urgency_score     = float(nlp_result.get("urgency_score", 0.0))
+    urgent_flag       = int(nlp_result.get("urgent_flag", 0))
 
     override_applied       = False
     strategy               = None
@@ -398,7 +401,7 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
                 "hardware":   int(nlp_result.get("has_hardware",   0)),
             }
 
-            cleaned_solution = _clean_rag_text(top_solution)
+            cleaned_solution = _clean_rag_text( top_solution)
 
             raw_output = _safe_generate(
                 ticket_summary=ticket_text[:300],
@@ -448,6 +451,8 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
         "conversation_end":       conversation_end,
         "resolved":               bool(final_strategy == "suggest" and top_sim >= 0.50),
         "sla_breach":             bool(sla_breach_flag == 1),
+        "urgency_score":          urgency_score,
+        "urgent_flag":            urgent_flag,
     }
 
 

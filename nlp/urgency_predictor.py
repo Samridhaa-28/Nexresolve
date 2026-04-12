@@ -50,9 +50,12 @@ URGENCY_KEYWORDS: dict[str, float] = {
     "down":         0.30,
     "production":   0.25,
     "blocker":      0.35,
+    "blocked":      0.30,
     "critical":     0.35,
     # High urgency
     "urgent":       0.30,
+    "immediately":  0.25,
+    "asap":         0.25,
     "broken":       0.25,
     "stuck":        0.20,
     "freeze":       0.20,
@@ -61,6 +64,7 @@ URGENCY_KEYWORDS: dict[str, float] = {
     "rate-limit":   0.20,
     # Medium urgency
     "regression":   0.15,
+    "failing":      0.12,
     "failed":       0.10,
     "error":        0.10,
     "exception":    0.10,
@@ -803,9 +807,13 @@ def predict(text: str, structured: Optional[dict] = None,
 
     mname = best["best_model"]
 
-    # Build a single-row DataFrame
+    # Build a single-row DataFrame with sensible text-derived defaults
     row = {col: 0.0 for col in FEATURE_COLS}
-    row["clean_text"] = text
+    row["clean_text"]     = text
+    row["word_count"]     = float(len(text.split()))
+    row["text_length"]    = float(len(text))
+    row["turn_count"]     = 1.0    # first-turn default
+    row["sla_limit_hours"] = 24.0  # standard SLA default
     if structured:
         for k, v in structured.items():
             if k in row:

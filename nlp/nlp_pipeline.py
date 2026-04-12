@@ -360,6 +360,17 @@ def run_nlp_pipeline(ticket_text: str) -> dict:
     # Frustration level: derived from negative sentiment (0–1 range)
     frustration_level = float(max(0.0, -sentiment_score))
 
+    # Rule-based boost: scan for frustration keywords (+0.4 per match, capped at 1.0)
+    _FRUSTRATION_KEYWORDS = {
+        "irritated", "dissatisfied", "unhappy", "frustrated",
+        "annoyed", "angry", "upset", "disappointed", "irritate", "fed up"
+    }
+    _text_lower = text.lower()
+    for _kw in _FRUSTRATION_KEYWORDS:
+        if _kw in _text_lower:
+            frustration_level += 0.4
+    frustration_level = min(1.0, frustration_level)
+
     # ── 6. Clarification modeling ─────────────────────────────────────────────
     try:
         cr = _clarify.predict(

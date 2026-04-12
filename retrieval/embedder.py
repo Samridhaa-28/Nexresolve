@@ -20,8 +20,6 @@ def get_model() -> SentenceTransformer:
         _model = SentenceTransformer(MODEL_NAME,device="cpu")
         print("[Embedder] Model loaded successfully.")
     return _model
-
-
 # ---------------------------------------------------------------------------
 # Core embedding function
 # ---------------------------------------------------------------------------

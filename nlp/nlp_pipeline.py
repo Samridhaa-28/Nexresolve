@@ -102,7 +102,7 @@ def run_rag_for_ticket(
         query_text=query,
         index=index,
         metadata=metadata,
-        top_k=top_k+2,
+        top_k=top_k,
         query_issue_number=issue_number
     )
 

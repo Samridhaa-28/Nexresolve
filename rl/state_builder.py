@@ -254,15 +254,16 @@ def build_single_state(
     """
     row = dict(ticket_row)
 
-    # RAG signals
-    rag = run_rag_for_ticket(
-        clean_text        = str(row.get("clean_text", "")),
-        intent_label      = str(row.get("intent_group", "")),
-        intent_confidence = float(row.get("confidence_score", 1.0)),
-        top_k             = top_k,
-        index_path        = index_path,
-    )
-    row.update(rag)
+    # RAG signals — skip if already pre-computed upstream (e.g. by api/pipeline.py)
+    if not all(k in row for k in ("max_sim", "avg_sim", "sim_spread", "knowledge_gap_flag")):
+        rag = run_rag_for_ticket(
+            clean_text        = str(row.get("clean_text", "")),
+            intent_label      = str(row.get("intent_group", "")),
+            intent_confidence = float(row.get("confidence_score", 1.0)),
+            top_k             = top_k,
+            index_path        = index_path,
+        )
+        row.update(rag)
 
     # Encode categoricals
     row["intent_group_enc"]      = INTENT_GROUP_MAP      .get(str(row.get("intent_group", "")).lower(), 7)

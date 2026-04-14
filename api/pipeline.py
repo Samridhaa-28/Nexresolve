@@ -33,11 +33,10 @@ _L1_PATH     = str(_ROOT / "models" / "rl" / "l1_best.pth")
 _L2_DIR      = str(_ROOT / "models" / "rl" / "best")
 _INDEX_PATH  = str(_ROOT / "data"   / "retrieval" / "kb_index")
 
-from nlp.nlp_pipeline import run_nlp_pipeline
-from retrieval.retriever import retrieve
+from nlp.nlp_pipeline import run_nlp_pipeline, run_rag_for_ticket as _run_rag_signals
 from rl.state_builder import build_single_state
 from rl.action_masking import get_action_mask
-from rl.action_space import INDEX_TO_ACTION, Strategy
+from rl.action_space import INDEX_TO_ACTION, ACTION_TO_INDEX, Strategy
 from rl.level1_dqn import Level1Agent
 from rl.level2_dqn import Level2Agent
 
@@ -176,11 +175,13 @@ def clean_generated_output(text: str) -> str:
     return "\n".join(formatted)
 
 _CLARIFY_QUESTION_MAP = {
-    "ask_version":    "What version of the software or package are you using?",
-    "ask_platform":   "What operating system or platform are you running on?",
-    "ask_error_type": "Could you share the exact error message you are seeing?",
-    "ask_hardware":   "What hardware (GPU/CPU model) are you using?",
-    "ask_steps":      "Could you describe the exact steps that led to this issue?",
+    "ask_version":      "What version of the software or package are you using?",
+    "ask_platform":     "What operating system or platform are you running on?",
+    "ask_error_type":   "Could you share the exact error message you are seeing?",
+    "ask_hardware":     "What hardware (GPU/CPU model) are you using?",
+    "ask_steps":        "Could you describe the exact steps that led to this issue?",
+    "ask_uncertainty":  "Could you clarify exactly what is happening? Any additional context helps.",
+    "ask_vague_request": "Could you describe your issue in more detail so we can assist you better?",
 }
 
 
@@ -248,8 +249,16 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
     # ── 1. NLP ────────────────────────────────────────────────────────────────
     nlp_result: dict = run_nlp_pipeline(ticket_text)
 
-    # ── 2. RAG ────────────────────────────────────────────────────────────────
-    retrieved: list = retrieve(ticket_text, top_k=3, index_path=_INDEX_PATH)
+    # ── 2. RAG (single retrieval — reused for state signals and solution) ──────
+    _rag_signal = _run_rag_signals(
+        clean_text        = ticket_text,
+        intent_label      = nlp_result.get("intent_group"),
+        intent_confidence = float(nlp_result.get("confidence_score", 1.0)),
+        top_k             = 5,
+        index_path        = _INDEX_PATH,
+        return_full       = True,
+    )
+    retrieved: list = _rag_signal.get("retrieved_optimised") or _rag_signal.get("retrieved_raw") or []
     top_sim: float  = float(retrieved[0]["similarity_score"]) if retrieved else 0.0
 
     rag_results = []
@@ -266,7 +275,6 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
         })
 
     top_solution = pick_best_rag_result(rag_results)
-    #combined_solution = get_combined_solution(rag_results)
 
     # ── 3. State row ──────────────────────────────────────────────────────────
     # SLA remaining decreases by _SLA_DECREASE_PER_TURN for each clarification turn
@@ -295,7 +303,11 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
         "rl_recommendation":    "route_directly" if nlp_result.get("intent_group") in {
                                     "billing", "general", "feature_request", "duplicate"
                                 } else "clarify_first",
-        "top_tier":             "tier3_minimal",
+        "top_tier":             _rag_signal.get("top_tier", "tier3_minimal"),
+        "max_sim":              _rag_signal.get("max_sim", 0.0),
+        "avg_sim":              _rag_signal.get("avg_sim", 0.0),
+        "sim_spread":           _rag_signal.get("sim_spread", 0.0),
+        "knowledge_gap_flag":   _rag_signal.get("knowledge_gap_flag", 1),
     }
 
     state: np.ndarray      = build_single_state(row, index_path=_INDEX_PATH)
@@ -321,6 +333,8 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
     if sla_breach_flag == 1:
         strategy      = "escalate"
         action_name   = "escalate_human"
+        strategy_idx  = Strategy.ESCALATE.value
+        action_idx    = ACTION_TO_INDEX["escalate_human"]
         response      = (
             "The SLA deadline for this ticket has been breached. "
             "Your case has been immediately escalated to a human specialist "
@@ -333,6 +347,8 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
     elif frustration_level > 0.70:
         strategy      = "escalate"
         action_name   = "escalate_human"
+        strategy_idx  = Strategy.ESCALATE.value
+        action_idx    = ACTION_TO_INDEX["escalate_human"]
         response      = (
             "We understand this issue has been frustrating. "
             "Your ticket has been escalated to a human specialist "
@@ -345,6 +361,8 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
     elif intent in ("billing", "billing_issue", "account_issue"):
         strategy      = "route"
         action_name   = "route_billing"
+        strategy_idx  = Strategy.ROUTE.value
+        action_idx    = ACTION_TO_INDEX["route_billing"]
         response      = (
             "Your billing issue has been routed to our billing and accounts team. "
             "They will review your case and contact you directly."
@@ -355,6 +373,8 @@ def run_pipeline(ticket_text: str, user_id: str, turn_count: int = 1) -> dict:
     elif intent == "duplicate":
         strategy      = "route"
         action_name   = "route_duplicate"
+        strategy_idx  = Strategy.ROUTE.value
+        action_idx    = 0  # no exact action for duplicate; maps to route_bug
         response      = (
             "This appears to be a known issue that is already being tracked. "
             "Your ticket has been linked to the existing report."

@@ -153,7 +153,7 @@ def clean_generated_output(text: str) -> str:
     if not steps:
         return text
 
-    # 🔥 Detect if actionable
+
     action_words = [
         "reduce", "restart", "check", "disable",
         "run", "clear", "install", "update", "verify", "set"

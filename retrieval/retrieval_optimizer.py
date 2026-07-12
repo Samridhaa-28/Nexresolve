@@ -1,7 +1,12 @@
 from __future__ import annotations
 
 import re
+import sys
+import os
 from typing import Optional
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from nlp.intent_classifier import LABEL_TO_GROUP
 
 
 # ---------------------------------------------------------------------------
@@ -27,8 +32,7 @@ def filter_by_intent(
     intent_lower = intent_label.lower()
     filtered = [
         r for r in retrieved
-        if intent_lower in r.get("primary_label", "").lower()
-        or r.get("primary_label", "").lower() in intent_lower
+        if LABEL_TO_GROUP.get(r.get("primary_label", "").lower(), "other") == intent_lower
     ]
 
     # Fallback: never return an empty list
@@ -58,7 +62,7 @@ def deduplicate_solutions(
     kept: list[dict] = []
     kept_solutions: list[str] = []
 
-    # NEW: track duplicate count per cluster
+    
     for result in retrieved:
         candidate_sol = result.get("solution_comments", "")
 

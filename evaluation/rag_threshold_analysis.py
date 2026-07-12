@@ -33,7 +33,7 @@ for gap_t in gap_thresholds:
 
         gap_score = (reopen_gap1 - reopen_gap0) + (success_gap0 - success_gap1)
 
-        # 🔥 NEW: penalty for extreme ratios
+       
         balance_penalty = abs(gap_ratio - 0.35)  # ideal ~35%
         adjusted_gap_score = gap_score - balance_penalty
 

@@ -69,4 +69,3 @@
 
   Ceiling note  : Performance ceiling with this dataset (596 train, 9 classes, avg 66/class): ~55-60% accuracy. The primary bottleneck is needs_info (220 samples, workflow-state label indistinguishable from bugs) and enhancement (9 samples, unlearnable). These are data limitations, not model limitations.
 
-  Next step     : Run confidence_estimator.py --mode generate --model best to write intent features into final_rl_dataset.csv, then proceed to urgency_predictor.py.

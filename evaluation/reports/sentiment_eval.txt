@@ -1,7 +1,6 @@
 ==================================================
  NEXRESOLVE SENTIMENT EVALUATION REPORT
 ==================================================
-Generated At: 2026-03-26T09:52:11.082399
 Total Tickets Analyzed: 852
 
 --- Global Averages ---

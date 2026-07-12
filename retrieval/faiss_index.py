@@ -7,7 +7,7 @@ import faiss
 from retrieval.embedder import generate_embeddings
 
 # ---------------------------------------------------------------------------
-# Default paths (relative to project root; override via arguments)
+# Default paths 
 # ---------------------------------------------------------------------------
 DEFAULT_KB_PATH = "data/splits/knowledge_base.csv"
 DEFAULT_INDEX_PATH = "data/retrieval/kb_index"   # saved as .faiss + .meta.json

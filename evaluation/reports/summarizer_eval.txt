@@ -1,7 +1,6 @@
 ==================================================
  NEXRESOLVE SUMMARIZER EVALUATION REPORT
 ==================================================
-Generated At: 2026-03-26T09:54:33.097404
 Total Tickets Analyzed: 852
 
 --- Averages & Compression ---
